@@ -39,11 +39,11 @@ function MatrixRain() {
         const random = Math.random()
         
         if (random > 0.8) {
-          ctx.fillStyle = '#FFD700'
+          ctx.fillStyle = '#638b4b'
         } else if (random > 0.5) {
-          ctx.fillStyle = 'rgba(218, 165, 32, 0.9)'
+          ctx.fillStyle = 'rgba(99, 139, 75, 0.9)'
         } else {
-          ctx.fillStyle = 'rgba(168, 143, 45, 0.7)'
+          ctx.fillStyle = 'rgba(99, 139, 75, 0.7)'
         }
         
         ctx.fillText(char, i * fontSize, drops[i] * fontSize)
@@ -73,7 +73,7 @@ function MatrixRain() {
       />
       <div className="fixed bottom-0 left-0 right-0 h-[60%] pointer-events-none z-0"
         style={{
-          background: 'linear-gradient(to top, rgba(139, 115, 0, 0.15) 0%, rgba(139, 115, 0, 0.05) 30%, transparent 60%)'
+          background: 'linear-gradient(to top, rgba(99, 139, 75, 0.15) 0%, rgba(99, 139, 75, 0.05) 30%, transparent 60%)'
         }}
       />
     </>
@@ -86,8 +86,8 @@ function AnimatedHeading() {
   const [showCursor, setShowCursor] = useState(true)
   const [isComplete, setIsComplete] = useState(false)
 
-  const textLine1 = 'Close More Deals. Build'
-  const textLine2 = 'Generational Wealth.'
+  const textLine1 = 'Close More Policies.'
+  const textLine2 = 'Scale Your Insurance Business.'
 
   useEffect(() => {
     const cursorInterval = setInterval(() => {
@@ -132,19 +132,19 @@ function AnimatedHeading() {
       <span className="text-white">
         {line1}
         {!isComplete && line1.length < textLine1.length && (
-          <span className={`inline-block w-[3px] h-[1em] bg-amber-400 ml-1 ${showCursor ? 'opacity-100' : 'opacity-0'} align-middle`}></span>
+          <span className={`inline-block w-[3px] h-[1em] bg-[#638b4b] ml-1 ${showCursor ? 'opacity-100' : 'opacity-0'} align-middle`}></span>
         )}
       </span>
       <br />
       <span 
         className="bg-clip-text text-transparent"
         style={{
-          backgroundImage: 'linear-gradient(135deg, #fcd34d 0%, #fbbf24 25%, #f59e0b 50%, #d97706 100%)',
+          backgroundImage: 'linear-gradient(135deg, #638b4b 0%, #75a85e 25%, #5e9a52 50%, #3d6c31 100%)',
         }}
       >
         {line2}
         {line2.length > 0 && line2.length < textLine2.length && (
-          <span className={`inline-block w-[3px] h-[1em] bg-amber-400 ml-1 ${showCursor ? 'opacity-100' : 'opacity-0'} align-middle`}></span>
+          <span className={`inline-block w-[3px] h-[1em] bg-[#638b4b] ml-1 ${showCursor ? 'opacity-100' : 'opacity-0'} align-middle`}></span>
         )}
       </span>
     </h1>
@@ -182,8 +182,8 @@ function AnimatedSuccessHeading() {
   const [isComplete, setIsComplete] = useState(false)
   const { ref, shouldAnimate } = useInViewAnimation()
 
-  const textLine1 = 'Real Members. '
-  const textLine2 = 'Real Results.'
+  const textLine1 = 'Real Agents. Real Policies.'
+  const textLine2 = 'Real Revenue.'
 
   useEffect(() => {
     if (!shouldAnimate) return
@@ -232,21 +232,21 @@ function AnimatedSuccessHeading() {
       <span className="text-white">
         {line1}
         {shouldAnimate && line1.length > 0 && line1.length < textLine1.length && (
-          <span className={`inline-block w-[2px] sm:w-[3px] h-[0.9em] bg-amber-400 ml-0.5 sm:ml-1 ${showCursor ? 'opacity-100' : 'opacity-0'} align-middle`}></span>
+          <span className={`inline-block w-[2px] sm:w-[3px] h-[0.9em] bg-[#638b4b] ml-0.5 sm:ml-1 ${showCursor ? 'opacity-100' : 'opacity-0'} align-middle`}></span>
         )}
       </span>
       <span 
         className="bg-clip-text text-transparent"
         style={{
-          backgroundImage: 'linear-gradient(135deg, #fcd34d 0%, #fbbf24 25%, #f59e0b 50%, #d97706 100%)',
+          backgroundImage: 'linear-gradient(135deg, #638b4b 0%, #75a85e 25%, #5e9a52 50%, #3d6c31 100%)',
         }}
       >
         {line2}
         {shouldAnimate && line2.length > 0 && line2.length < textLine2.length && (
-          <span className={`inline-block w-[2px] sm:w-[3px] h-[0.9em] bg-amber-400 ml-0.5 sm:ml-1 ${showCursor ? 'opacity-100' : 'opacity-0'} align-middle`}></span>
+          <span className={`inline-block w-[2px] sm:w-[3px] h-[0.9em] bg-[#638b4b] ml-0.5 sm:ml-1 ${showCursor ? 'opacity-100' : 'opacity-0'} align-middle`}></span>
         )}
         {shouldAnimate && !isComplete && line1.length >= textLine1.length && line2.length === 0 && (
-          <span className={`inline-block w-[2px] sm:w-[3px] h-[0.9em] bg-amber-400 ml-0.5 sm:ml-1 ${showCursor ? 'opacity-100' : 'opacity-0'} align-middle`}></span>
+          <span className={`inline-block w-[2px] sm:w-[3px] h-[0.9em] bg-[#638b4b] ml-0.5 sm:ml-1 ${showCursor ? 'opacity-100' : 'opacity-0'} align-middle`}></span>
         )}
       </span>
     </h2>
@@ -260,8 +260,8 @@ function AnimatedFeaturesHeading() {
   const [isComplete, setIsComplete] = useState(false)
   const { ref, shouldAnimate } = useInViewAnimation()
 
-  const textLine1 = 'Everything You Need to '
-  const textLine2 = 'Dominate CRE'
+  const textLine1 = 'Everything You Need to Scale'
+  const textLine2 = 'Insurance.'
 
   useEffect(() => {
     if (!shouldAnimate) return
@@ -310,21 +310,21 @@ function AnimatedFeaturesHeading() {
       <span className="text-white">
         {line1}
         {shouldAnimate && line1.length > 0 && line1.length < textLine1.length && (
-          <span className={`inline-block w-[2px] sm:w-[3px] h-[0.9em] bg-amber-400 ml-0.5 sm:ml-1 ${showCursor ? 'opacity-100' : 'opacity-0'} align-middle`}></span>
+          <span className={`inline-block w-[2px] sm:w-[3px] h-[0.9em] bg-[#638b4b] ml-0.5 sm:ml-1 ${showCursor ? 'opacity-100' : 'opacity-0'} align-middle`}></span>
         )}
       </span>
       <span 
         className="bg-clip-text text-transparent"
         style={{
-          backgroundImage: 'linear-gradient(135deg, #fcd34d 0%, #fbbf24 25%, #f59e0b 50%, #d97706 100%)',
+          backgroundImage: 'linear-gradient(135deg, #638b4b 0%, #75a85e 25%, #5e9a52 50%, #3d6c31 100%)',
         }}
       >
         {line2}
         {shouldAnimate && line2.length > 0 && line2.length < textLine2.length && (
-          <span className={`inline-block w-[2px] sm:w-[3px] h-[0.9em] bg-amber-400 ml-0.5 sm:ml-1 ${showCursor ? 'opacity-100' : 'opacity-0'} align-middle`}></span>
+          <span className={`inline-block w-[2px] sm:w-[3px] h-[0.9em] bg-[#638b4b] ml-0.5 sm:ml-1 ${showCursor ? 'opacity-100' : 'opacity-0'} align-middle`}></span>
         )}
         {shouldAnimate && !isComplete && line1.length >= textLine1.length && line2.length === 0 && (
-          <span className={`inline-block w-[2px] sm:w-[3px] h-[0.9em] bg-amber-400 ml-0.5 sm:ml-1 ${showCursor ? 'opacity-100' : 'opacity-0'} align-middle`}></span>
+          <span className={`inline-block w-[2px] sm:w-[3px] h-[0.9em] bg-[#638b4b] ml-0.5 sm:ml-1 ${showCursor ? 'opacity-100' : 'opacity-0'} align-middle`}></span>
         )}
       </span>
     </h2>
@@ -336,19 +336,22 @@ function FeatureCard({ icon: Icon, title, description }: { icon: React.ElementTy
     <div 
       className="rounded-2xl p-4 sm:p-6 transition-all duration-300 hover:scale-[1.02]"
       style={{
-        background: 'linear-gradient(145deg, rgba(20, 20, 20, 0.9) 0%, rgba(15, 15, 15, 0.95) 100%)',
-        border: '1px solid rgba(251, 191, 36, 0.15)',
-        boxShadow: '0 4px 30px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05)'
+        background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.09) 100%)',
+        border: '1px solid rgba(255, 255, 255, 0.22)',
+        boxShadow: '0 14px 55px rgba(0, 0, 0, 0.40), inset 0 1px 0 rgba(255, 255, 255, 0.22)',
+        backdropFilter: 'blur(18px)',
+        WebkitBackdropFilter: 'blur(18px)'
       }}
     >
       <div 
         className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center mb-3 sm:mb-4"
         style={{
-          background: 'linear-gradient(135deg, rgba(251, 191, 36, 0.15) 0%, rgba(245, 158, 11, 0.08) 100%)',
-          border: '1px solid rgba(251, 191, 36, 0.2)'
+          background: 'linear-gradient(135deg, rgba(99, 139, 75, 0.16) 0%, rgba(99, 139, 75, 0.08) 100%)',
+          border: '1px solid rgba(99, 139, 75, 0.28)',
+          boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.10)'
         }}
       >
-        <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-amber-400" />
+        <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-[#638b4b]" />
       </div>
       <h3 className="text-white font-semibold text-base sm:text-lg mb-2">{title}</h3>
       <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">{description}</p>
@@ -359,68 +362,71 @@ function FeatureCard({ icon: Icon, title, description }: { icon: React.ElementTy
 function Features() {
   const features = [
     {
-      icon: BarChart3,
-      title: 'Smart Deal Pipeline',
-      description: 'Track every opportunity from first contact to closing table. Stage-based workflow built for how real deals actually move.'
+      icon: Cpu,
+      title: 'Smart Lead Pipeline',
+      description: 'Track, manage, and prioritize every lead in one centralized system built for insurance workflows. Never lose an opportunity - move prospects seamlessly from inquiry to closed policy.'
     },
     {
-      icon: MapPin,
-      title: 'Property Prospecting',
-      description: 'Search any market on an interactive map. Get enriched owner contact data — up to 800 verified contacts every month.'
+      icon: Target,
+      title: 'Targeted Lead Distribution',
+      description: 'Route leads based on agent licensing, performance, and availability in real time. Ensure the right agent gets the right opportunity - maximizing conversions and speed.'
     },
     {
-      icon: Brain,
-      title: 'AI-Powered Underwriting',
-      description: 'Upload rent rolls, P&Ls, and financials. Our AI parses the numbers so you can underwrite deals in minutes, not days.'
+      icon: Cpu,
+      title: 'AI Lead Qualification',
+      description: 'Automatically filter and qualify leads based on intent, eligibility, and data signals. Focus only on high-quality prospects that are ready to convert into policies.'
     },
     {
-      icon: FolderLock,
-      title: 'Secure Document Vault',
-      description: 'Store, organize, and share deal documents with bank-level security. Cloud-synced and accessible from anywhere.'
+      icon: Shield,
+      title: 'Secure Client Data & Applications',
+      description: 'Store and manage sensitive client information with enterprise-grade security and compliance. Access applications, documents, and records anytime - all in one protected environment.'
     },
     {
-      icon: Video,
-      title: 'Daily Live Coaching',
-      description: 'Join the 11AM call — live deal reviews, market analysis, and strategy sessions with top-producing dealmakers.'
-    },
-    {
-      icon: UserCheck,
-      title: 'Private Dealmaker Community',
-      description: 'Network with 500+ active CRE investors, brokers, and capital partners in an exclusive members-only community.'
+      icon: Phone,
+      title: 'Live Transfer System',
+      description: 'Connect agents instantly with high-intent prospects through real-time live calls. Eliminate delays and increase close rates by engaging leads at peak interest.'
     },
     {
       icon: Building2,
-      title: 'Investor & Lender Portals',
-      description: 'Give your capital partners their own login. Share deals, documents, and updates through branded portals.'
+      title: 'Agent & Publisher Network',
+      description: 'Collaborate across a unified ecosystem of agents, agencies, and publishers. Expand your reach and scale faster with a built-in distribution and partner network.'
     },
     {
-      icon: Gift,
-      title: 'Referral Rewards Program',
-      description: 'Earn 15% recurring commission for every member you bring in. Build passive income while you build your network.'
+      icon: RefreshCw,
+      title: 'Real-Time Lead Routing',
+      description: 'Automatically distribute incoming leads with intelligent routing logic. Reduce response time and ensure no lead goes unassigned or untouched.'
+    },
+    {
+      icon: BarChart3,
+      title: 'Publisher Payout System',
+      description: 'Track performance, commissions, and payouts with complete transparency. Give publishers a seamless experience while scaling your lead generation engine.'
     }
   ]
 
   return (
-    <section className="relative py-16 sm:py-24">
+    <section id="features" className="relative py-16 sm:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10 sm:mb-16">
           <div 
             className="inline-flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full mb-4 sm:mb-6"
             style={{
-              background: 'rgba(251, 191, 36, 0.1)',
-              border: '1px solid rgba(251, 191, 36, 0.2)'
+              background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.08) 100%)',
+              border: '1px solid rgba(255, 255, 255, 0.22)',
+              boxShadow: '0 10px 35px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.20)',
+              backdropFilter: 'blur(18px)',
+              WebkitBackdropFilter: 'blur(18px)'
             }}
           >
-            <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-amber-400" />
-            <span className="text-amber-400 text-[10px] sm:text-xs font-semibold tracking-wider uppercase">Platform Features</span>
-            <span className="text-amber-400/60 text-[10px] sm:text-xs hidden sm:inline">—</span>
-            <span className="text-amber-400 text-[10px] sm:text-xs font-semibold">01</span>
+            <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-[#638b4b]" />
+            <span className="text-[#638b4b] text-[10px] sm:text-xs font-semibold tracking-wider uppercase">PLATFORM FEATURES</span>
+            <span className="text-[#638b4b]/60 text-[10px] sm:text-xs hidden sm:inline">-</span>
+            <span className="text-[#638b4b] text-[10px] sm:text-xs font-semibold">01</span>
           </div>
 
           <AnimatedFeaturesHeading />
 
           <p className="text-slate-400 text-sm sm:text-lg">
-            One platform. Every tool. Zero excuses.
+            One platform. Total control over your leads, agents, and growth.
           </p>
         </div>
 
@@ -462,9 +468,11 @@ function SuccessCard({
     <div 
       className="rounded-2xl overflow-hidden transition-all duration-300 hover:scale-[1.02]"
       style={{
-        background: 'linear-gradient(145deg, rgba(20, 20, 20, 0.9) 0%, rgba(15, 15, 15, 0.95) 100%)',
-        border: '1px solid rgba(255, 255, 255, 0.1)',
-        boxShadow: '0 4px 30px rgba(0, 0, 0, 0.3)'
+        background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.09) 100%)',
+        border: '1px solid rgba(255, 255, 255, 0.22)',
+        boxShadow: '0 14px 55px rgba(0, 0, 0, 0.40), inset 0 1px 0 rgba(255, 255, 255, 0.22)',
+        backdropFilter: 'blur(18px)',
+        WebkitBackdropFilter: 'blur(18px)'
       }}
     >
       <div 
@@ -489,8 +497,11 @@ function SuccessCard({
         <div 
           className="rounded-xl p-3 sm:p-4"
           style={{
-            background: 'rgba(0, 0, 0, 0.3)',
-            border: '1px solid rgba(255, 255, 255, 0.05)'
+            background: 'rgba(0, 0, 0, 0.22)',
+            border: '1px solid rgba(255, 255, 255, 0.14)',
+            backdropFilter: 'blur(14px)',
+            WebkitBackdropFilter: 'blur(14px)',
+            boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.12)'
           }}
         >
           <div className="flex items-center gap-2 sm:gap-3">
@@ -506,58 +517,61 @@ function SuccessCard({
 function SuccessStories() {
   const stories = [
     {
-      badge: 'DEAL PIPELINE',
-      badgeColor: '#fbbf24',
-      topBorderColor: 'linear-gradient(90deg, #fbbf24, #f59e0b)',
-      title: 'From 0 to 12 Closed Deals in 6 Months',
-      description: 'A first-time CRE investor used Rainmakers OS to build a structured pipeline, track 47 leads, and close 12 deals totaling $8.4M in his first two quarters on the platform.',
-      stat: '$8.4M',
-      statLabel: 'Total Deal Volume',
-      statColor: '#fbbf24'
+      badge: 'VOLUME',
+      badgeColor: '#638b4b',
+      topBorderColor: 'linear-gradient(90deg, #638b4b, #3d6c31)',
+      title: 'High-intent leads routed in real time to agents and agencies across the network.',
+      description: 'Consistent volume that fuels predictable and scalable growth.',
+      stat: '10,000+',
+      statLabel: 'Leads Delivered Monthly',
+      statColor: '#638b4b'
     },
     {
-      badge: 'AI UNDERWRITING',
-      badgeColor: '#22d3ee',
-      topBorderColor: 'linear-gradient(90deg, #22d3ee, #06b6d4)',
-      title: 'Underwriting Time Cut by 80%',
-      description: 'A multifamily acquisition team uploaded 200+ rent rolls in their first month. The AI parser reduced underwriting from 4 hours to 45 minutes per deal — freeing the team to focus on negotiations.',
-      stat: '80%',
-      statLabel: 'Time Saved Per Deal',
-      statColor: '#22d3ee'
+      badge: 'PERFORMANCE',
+      badgeColor: '#638b4b',
+      topBorderColor: 'linear-gradient(90deg, #638b4b, #3d6c31)',
+      title: 'Connect with prospects instantly through live transfers and smart routing.',
+      description: 'Close more policies by engaging leads at peak intent.',
+      stat: '2X',
+      statLabel: 'Faster Response & Higher Conversions',
+      statColor: '#638b4b'
     },
     {
-      badge: 'COMMUNITY',
-      badgeColor: '#fbbf24',
-      topBorderColor: 'linear-gradient(90deg, #fbbf24, #f59e0b)',
-      title: '$22M Joint Venture Born on the 11AM Call',
-      description: 'Two Rainmaker Pro members connected during a daily coaching session, identified a 96-unit value-add opportunity, and closed a $22M JV deal — all within 90 days of meeting on the platform.',
-      stat: '$22M',
-      statLabel: 'JV Deal Closed',
-      statColor: '#fbbf24'
+      badge: 'REVENUE',
+      badgeColor: '#638b4b',
+      topBorderColor: 'linear-gradient(90deg, #638b4b, #3d6c31)',
+      title: 'Agents and agencies are scaling revenue with a system built for performance.',
+      description: 'Turn lead flow into consistent policy growth and long-term income.',
+      stat: 'Millions',
+      statLabel: 'Premium Generated Across the Platform',
+      statColor: '#638b4b'
     }
   ]
 
   return (
-    <section className="relative py-16 sm:py-24">
+    <section id="case-studies" className="relative py-16 sm:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10 sm:mb-16">
           <div 
             className="inline-flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full mb-4 sm:mb-6"
             style={{
-              background: 'rgba(251, 191, 36, 0.1)',
-              border: '1px solid rgba(251, 191, 36, 0.2)'
+              background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.08) 100%)',
+              border: '1px solid rgba(255, 255, 255, 0.22)',
+              boxShadow: '0 10px 35px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.20)',
+              backdropFilter: 'blur(18px)',
+              WebkitBackdropFilter: 'blur(18px)'
             }}
           >
-            <Users className="w-3 h-3 sm:w-4 sm:h-4 text-amber-400" />
-            <span className="text-amber-400 text-[10px] sm:text-xs font-semibold tracking-wider uppercase">Success Stories</span>
-            <span className="text-amber-400/60 text-[10px] sm:text-xs hidden sm:inline">—</span>
-            <span className="text-amber-400 text-[10px] sm:text-xs font-semibold">02</span>
+            <TrendingUp className="w-3 h-3 sm:w-4 sm:h-4 text-[#638b4b]" />
+            <span className="text-[#638b4b] text-[10px] sm:text-xs font-semibold tracking-wider uppercase">PROVEN PERFORMANCE</span>
+            <span className="text-[#638b4b]/60 text-[10px] sm:text-xs hidden sm:inline">-</span>
+            <span className="text-[#638b4b] text-[10px] sm:text-xs font-semibold">02</span>
           </div>
 
           <AnimatedSuccessHeading />
 
           <p className="text-slate-400 text-sm sm:text-lg">
-            See how Rainmakers OS is helping CRE professionals close bigger deals, faster.
+            See how agents and agencies are closing faster, scaling smarter, and growing consistently with INSURVAS.
           </p>
         </div>
 
@@ -586,16 +600,18 @@ function StatCard({ icon: Icon, stat, label }: { icon: React.ElementType, stat: 
     <div 
       className="rounded-2xl p-4 sm:p-6 text-center transition-all duration-300 hover:scale-105"
       style={{
-        background: 'linear-gradient(145deg, rgba(20, 20, 20, 0.9) 0%, rgba(15, 15, 15, 0.95) 100%)',
-        border: '1px solid rgba(251, 191, 36, 0.15)',
-        boxShadow: '0 4px 30px rgba(0, 0, 0, 0.3)'
+        background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.09) 100%)',
+        border: '1px solid rgba(255, 255, 255, 0.22)',
+        boxShadow: '0 14px 55px rgba(0, 0, 0, 0.40), inset 0 1px 0 rgba(255, 255, 255, 0.22)',
+        backdropFilter: 'blur(18px)',
+        WebkitBackdropFilter: 'blur(18px)'
       }}
     >
-      <Icon className="w-6 h-6 sm:w-8 sm:h-8 text-amber-400 mx-auto mb-2 sm:mb-4" />
+      <Icon className="w-6 h-6 sm:w-8 sm:h-8 text-[#638b4b] mx-auto mb-2 sm:mb-4" />
       <div 
         className="text-2xl sm:text-4xl font-bold mb-1 sm:mb-2"
         style={{
-          backgroundImage: 'linear-gradient(135deg, #fcd34d 0%, #fbbf24 25%, #f59e0b 50%, #d97706 100%)',
+          backgroundImage: 'linear-gradient(135deg, #638b4b 0%, #75a85e 25%, #5e9a52 50%, #3d6c31 100%)',
           WebkitBackgroundClip: 'text',
           WebkitTextFillColor: 'transparent',
         }}
@@ -622,18 +638,19 @@ function TestimonialCard({
     <div 
       className="rounded-2xl p-4 sm:p-6 min-w-[280px] sm:min-w-[350px] max-w-[280px] sm:max-w-[350px] flex-shrink-0 transition-all duration-300 hover:scale-[1.02]"
       style={{
-        background: 'linear-gradient(145deg, rgba(20, 20, 20, 0.9) 0%, rgba(15, 15, 15, 0.95) 100%)',
-        border: '1px solid rgba(255, 255, 255, 0.1)',
-        boxShadow: '0 4px 30px rgba(0, 0, 0, 0.3)'
+        backgroundColor: 'rgba(15, 15, 15, 0.85)',
+        background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.09) 100%), linear-gradient(180deg, rgba(15, 15, 15, 0.85) 0%, rgba(10, 10, 10, 0.90) 100%)',
+        border: '1px solid rgba(255, 255, 255, 0.22)',
+        boxShadow: '0 14px 55px rgba(0, 0, 0, 0.40), inset 0 1px 0 rgba(255, 255, 255, 0.22)'
       }}
     >
       <div className="flex gap-0.5 sm:gap-1 mb-3 sm:mb-4">
         {[...Array(5)].map((_, i) => (
-          <Star key={i} className="w-3 h-3 sm:w-4 sm:h-4 fill-amber-400 text-amber-400" />
+          <Star key={i} className="w-3 h-3 sm:w-4 sm:h-4 fill-[#638b4b] text-[#638b4b]" />
         ))}
       </div>
 
-      <Quote className="w-6 h-6 sm:w-8 sm:h-8 text-amber-400/30 mb-2 sm:mb-3" />
+      <Quote className="w-6 h-6 sm:w-8 sm:h-8 text-[#638b4b]/30 mb-2 sm:mb-3" />
 
       <p className="text-slate-300 text-xs sm:text-sm leading-relaxed mb-4 sm:mb-6 italic">
         "{quote}"
@@ -641,10 +658,10 @@ function TestimonialCard({
 
       <div className="flex items-center gap-2 sm:gap-3">
         <div 
-          className="w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-xs sm:text-sm font-bold text-amber-400"
+          className="w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-xs sm:text-sm font-bold text-[#638b4b]"
           style={{
-            background: 'linear-gradient(135deg, rgba(251, 191, 36, 0.2) 0%, rgba(245, 158, 11, 0.1) 100%)',
-            border: '1px solid rgba(251, 191, 36, 0.3)'
+            background: 'linear-gradient(135deg, rgba(99, 139, 75, 0.2) 0%, rgba(99, 139, 75, 0.1) 100%)',
+            border: '1px solid rgba(99, 139, 75, 0.3)'
           }}
         >
           {initials}
@@ -660,43 +677,73 @@ function TestimonialCard({
 
 function Testimonials() {
   const stats = [
-    { icon: Users, stat: '500+', label: 'Active Dealmakers' },
-    { icon: TrendingUp, stat: '$2B+', label: 'Deal Volume Tracked' },
-    { icon: Target, stat: '1,000+', label: 'Deals Managed' },
-    { icon: RefreshCw, stat: '98%', label: 'Member Retention' }
+    { icon: Users, stat: '500+', label: 'Active Agents & Agencies' },
+    { icon: Target, stat: '10,000+', label: 'Leads Delivered Monthly' },
+    { icon: TrendingUp, stat: '1,000+', label: 'Policies Closed Monthly' },
+    { icon: RefreshCw, stat: '95%', label: 'Contact Rate on Live Transfers' }
   ]
 
   const testimonials = [
     {
-      quote: 'I referred four people and the passive income from commissions already covers my subscription. No-brainer.',
-      name: 'David K.',
-      role: 'Investment Sales Broker',
-      initials: 'DK'
+      quote: 'I went from inconsistent leads to closing policies daily. The live transfers alone changed how I operate.',
+      name: 'Jason Miller',
+      role: 'Licensed Insurance Agent',
+      initials: 'JM'
     },
     {
-      quote: 'The AI underwriting tool alone has saved me hundreds of hours. I can analyze a 50-unit apartment complex in under an hour now.',
-      name: 'Sarah M.',
-      role: 'Multifamily Syndicator',
-      initials: 'SM'
+            quote: 'Everything is finally in one place. No more juggling tools - just clean lead flow and faster conversions.',
+      name: 'Brandon Lewis',
+      role: 'Agency Owner',
+      initials: 'BL'
     },
     {
-      quote: 'Best CRE community I\'ve ever been part of. The deal flow from networking alone has paid for my membership 10x over.',
-      name: 'Anthony L.',
-      role: 'Commercial Broker',
-      initials: 'AL'
+      quote: 'Real-time routing is a game changer. We\'re connecting with serious prospects instantly.',
+      name: 'Ashley Carter',
+      role: 'Senior Insurance Advisor',
+      initials: 'AC'
     },
     {
-      quote: 'The property prospecting tool found me an off-market warehouse deal that turned into a $1.2M flip. Game changer.',
-      name: 'Rachel W.',
-      role: 'Industrial Investor',
-      initials: 'RW'
+      quote: 'We scaled without hiring more people. The system handles the heavy lifting.',
+      name: 'Kevin Brooks',
+      role: 'Insurance Sales Manager',
+      initials: 'KB'
     },
     {
-      quote: 'Rainmakers OS is the best investment I\'ve made in my CRE career. The ROI is undeniable.',
-      name: 'Brian C.',
-      role: 'Multifamily Investor',
-      initials: 'BC'
-    }
+      quote: 'From lead to policy, everything feels smooth and predictable now. That\'s what we were missing before.',
+      name: 'Rachel Thompson',
+      role: 'Agency Partner',
+      initials: 'RT'
+    },
+    {
+      quote: 'The speed of connection is unreal. By the time we speak to the lead, they\'re already ready to move forward.',
+      name: 'Daniel Foster',
+      role: 'Licensed Agent',
+      initials: 'DF'
+    },
+    {
+      quote: 'Lead quality is consistent, and the system keeps our team organized. It\'s helped us grow without chaos.',
+      name: 'Nicole Ramirez',
+      role: 'Agency Operations Manager',
+      initials: 'NR'
+    },
+    {
+      quote: 'We plugged into INSURVAS and immediately saw better results. More conversations, more policies.',
+      name: 'Chris Walker',
+      role: 'Independent Insurance Agent',
+      initials: 'CW'
+    },
+    {
+      quote: 'The platform made scaling simple. We\'re closing more without increasing our marketing spend.',
+      name: 'Andrew Collins',
+      role: 'Agency Owner',
+      initials: 'AC'
+    },
+    {
+      quote: 'It\'s not just leads - it\'s a full system. Everything from routing to closing just works.',
+      name: 'Megan Scott',
+      role: 'Insurance Consultant',
+      initials: 'MS'
+    },
   ]
 
   return (
@@ -719,24 +766,33 @@ function Testimonials() {
           <div 
             className="inline-flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full mb-4 sm:mb-6"
             style={{
-              background: 'rgba(251, 191, 36, 0.1)',
-              border: '1px solid rgba(251, 191, 36, 0.2)'
+              background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.08) 100%)',
+              border: '1px solid rgba(255, 255, 255, 0.22)',
+              boxShadow: '0 10px 35px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.20)',
+              backdropFilter: 'blur(18px)',
+              WebkitBackdropFilter: 'blur(18px)'
             }}
           >
-            <span className="text-amber-400 text-[10px] sm:text-xs font-semibold">03</span>
+            <span className="text-[#638b4b] text-[10px] sm:text-xs font-semibold tracking-wider uppercase">CUSTOMER STORIES</span>
+            <span className="text-[#638b4b]/60 text-[10px] sm:text-xs hidden sm:inline">-</span>
+            <span className="text-[#638b4b] text-[10px] sm:text-xs font-semibold">03</span>
           </div>
 
           <h2 className="text-2xl sm:text-4xl lg:text-6xl font-bold mb-3 sm:mb-4">
-            <span className="text-white">Built for Closers. </span>
+            <span className="text-white">Built for Insurance Professionals. </span>
             <span 
               className="bg-clip-text text-transparent"
               style={{
-                backgroundImage: 'linear-gradient(135deg, #fcd34d 0%, #fbbf24 25%, #f59e0b 50%, #d97706 100%)',
+                backgroundImage: 'linear-gradient(135deg, #638b4b 0%, #75a85e 25%, #5e9a52 50%, #3d6c31 100%)',
               }}
             >
-              Backed by Results.
+              Backed by Real Results.
             </span>
           </h2>
+
+          <p className="text-slate-400 text-sm sm:text-lg max-w-2xl mx-auto mt-2 sm:mt-4">
+            Powering agents, agencies, and publishers with real volume, real speed, and real results.
+          </p>
         </div>
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 mb-10 sm:mb-16">
@@ -757,7 +813,16 @@ function Testimonials() {
             WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)'
           }}
         >
-          <div className="marquee-track flex gap-4 sm:gap-6 w-max">
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background: 'rgba(0, 0, 0, 0.6)',
+              backdropFilter: 'blur(40px) saturate(120%)',
+              WebkitBackdropFilter: 'blur(40px) saturate(120%)',
+              zIndex: 1
+            }}
+          />
+          <div className="marquee-track flex gap-4 sm:gap-6 w-max" style={{ position: 'relative', zIndex: 2 }}>
             {testimonials.map((testimonial, index) => (
               <TestimonialCard 
                 key={`first-${index}`}
@@ -788,20 +853,22 @@ function FAQItem({ question, answer, isOpen, onClick }: { question: string, answ
     <div 
       className="rounded-xl sm:rounded-2xl overflow-hidden transition-all duration-300"
       style={{
-        background: 'linear-gradient(145deg, rgba(20, 20, 20, 0.9) 0%, rgba(15, 15, 15, 0.95) 100%)',
-        border: isOpen ? '1px solid rgba(251, 191, 36, 0.3)' : '1px solid rgba(255, 255, 255, 0.08)',
-        boxShadow: isOpen ? '0 4px 30px rgba(251, 191, 36, 0.1)' : '0 4px 30px rgba(0, 0, 0, 0.2)'
+        background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.09) 100%)',
+        border: isOpen ? '1px solid rgba(99, 139, 75, 0.3)' : '1px solid rgba(255, 255, 255, 0.08)',
+        boxShadow: isOpen ? '0 12px 45px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(99, 139, 75, 0.05) inset' : '0 12px 45px rgba(0, 0, 0, 0.35)',
+        backdropFilter: 'blur(18px)',
+        WebkitBackdropFilter: 'blur(18px)'
       }}
     >
       <button 
         onClick={onClick}
         className="w-full px-4 sm:px-6 py-4 sm:py-5 flex items-center justify-between text-left"
       >
-        <span className={`font-semibold text-sm sm:text-base pr-4 ${isOpen ? 'text-amber-400' : 'text-white'}`}>
+        <span className={`font-semibold text-sm sm:text-base pr-4 ${isOpen ? 'text-[#638b4b]' : 'text-white'}`}>
           {question}
         </span>
         <ChevronDown 
-          className={`w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 transition-transform duration-300 ${isOpen ? 'text-amber-400 rotate-180' : 'text-slate-400'}`}
+          className={`w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 transition-transform duration-300 ${isOpen ? 'text-[#638b4b] rotate-180' : 'text-slate-400'}`}
         />
       </button>
       
@@ -810,7 +877,7 @@ function FAQItem({ question, answer, isOpen, onClick }: { question: string, answ
       >
         <div 
           className="px-4 sm:px-6 pb-4 sm:pb-5 ml-4 sm:ml-6 mr-4 sm:mr-6"
-          style={{ borderLeft: '3px solid #f59e0b' }}
+          style={{ borderLeft: '3px solid #638b4b' }}
         >
           <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">{answer}</p>
         </div>
@@ -824,54 +891,53 @@ function FAQ() {
 
   const faqs = [
     {
-      question: 'What is Rainmakers OS?',
-      answer: 'The all-in-one deal management platform built for commercial real estate professionals. Track deals, prospect properties, underwrite opportunities, and connect with capital — all from a single dashboard.'
+      question: 'What is INSURVAS?',
+      answer: 'INSURVAS is an all-in-one platform designed for insurance agents, agencies, and publishers. It helps you manage lead flow, connect with prospects in real time, and scale your policy production - all from one system.'
     },
     {
-      question: 'Is there really a free plan?',
-      answer: 'Yes! Our Starter plan is completely free forever. It includes up to 10 active deals, basic prospecting tools, and access to the community. No credit card required to sign up.'
+      question: 'Do I need to be a licensed agent to use INSURVAS?',
+      answer: 'Licensed agents can directly receive and close leads on the platform. If you\'re not licensed, you can still join as a publisher (BPO) and generate leads within the ecosystem.'
     },
     {
-      question: 'How does property prospecting work?',
-      answer: 'Our AI-powered prospecting engine scans multiple data sources to identify off-market and on-market deals in your target areas. You can filter by property type, size, price range, and more.'
+      question: 'How are leads distributed?',
+      answer: 'Leads are routed in real time based on agent availability, licensing, and performance. This ensures faster response times and higher chances of closing each opportunity.'
     },
     {
-      question: 'What are Rain Credits?',
-      answer: 'Rain Credits are our usage-based credits for premium features like AI underwriting, advanced prospecting searches, and investor matching. Pro members get 500 credits monthly.'
+      question: 'What is the live transfer system?',
+      answer: 'The live transfer system connects agents instantly with high-intent prospects over a call. This allows you to engage leads at peak interest and significantly improve conversion rates.'
     },
     {
-      question: 'Can I cancel anytime?',
-      answer: 'Absolutely. There are no long-term contracts or cancellation fees. You can upgrade, downgrade, or cancel your subscription at any time from your account settings.'
+      question: 'How do publishers get paid?',
+      answer: 'Publishers are paid based on performance and lead quality. All payouts and performance metrics are tracked transparently within the platform.'
     },
     {
-      question: 'What happens on the daily coaching calls?',
-      answer: 'Our daily 11AM EST coaching calls feature live deal reviews, market analysis, strategy sessions, and Q&A with experienced CRE professionals.'
+      question: 'Can agencies manage multiple agents?',
+      answer: 'Yes - agencies can onboard, manage, and track their entire team within INSURVAS. You get full visibility into performance, lead distribution, and policy outcomes.'
     },
     {
-      question: 'How does the referral program work?',
-      answer: 'When you refer a new member who signs up for a paid plan, you earn 15% recurring commission for as long as they remain a subscriber. There\'s no limit to how many people you can refer.'
-    },
-    {
-      question: 'How do I upgrade my plan?',
-      answer: 'You can upgrade your plan at any time from your account settings. Upgrades take effect immediately, and you\'ll be charged a prorated amount for the remainder of your billing cycle.'
+      question: 'What states are supported?',
+      answer: 'INSURVAS supports agents and agencies operating across multiple states. Lead distribution is aligned with your licensing and compliance requirements.'
     }
   ]
 
   return (
-    <section className="relative py-16 sm:py-24">
+    <section id="faq" className="relative py-16 sm:py-24">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8 sm:mb-12">
           <div 
             className="inline-flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full mb-4 sm:mb-6"
             style={{
-              background: 'rgba(251, 191, 36, 0.1)',
-              border: '1px solid rgba(251, 191, 36, 0.2)'
+              background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.08) 100%)',
+              border: '1px solid rgba(255, 255, 255, 0.22)',
+              boxShadow: '0 10px 35px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.20)',
+              backdropFilter: 'blur(18px)',
+              WebkitBackdropFilter: 'blur(18px)'
             }}
           >
-            <HelpCircle className="w-3 h-3 sm:w-4 sm:h-4 text-amber-400" />
-            <span className="text-amber-400 text-[10px] sm:text-xs font-semibold tracking-wider uppercase">FAQ</span>
-            <span className="text-amber-400/60 text-[10px] sm:text-xs hidden sm:inline">—</span>
-            <span className="text-amber-400 text-[10px] sm:text-xs font-semibold">05</span>
+            <HelpCircle className="w-3 h-3 sm:w-4 sm:h-4 text-[#638b4b]" />
+            <span className="text-[#638b4b] text-[10px] sm:text-xs font-semibold tracking-wider uppercase">FAQ</span>
+            <span className="text-[#638b4b]/60 text-[10px] sm:text-xs hidden sm:inline">-</span>
+            <span className="text-[#638b4b] text-[10px] sm:text-xs font-semibold">05</span>
           </div>
 
           <h2 className="text-2xl sm:text-4xl lg:text-6xl font-bold mb-3 sm:mb-4">
@@ -879,12 +945,16 @@ function FAQ() {
             <span 
               className="bg-clip-text text-transparent"
               style={{
-                backgroundImage: 'linear-gradient(135deg, #fcd34d 0%, #fbbf24 25%, #f59e0b 50%, #d97706 100%)',
+                backgroundImage: 'linear-gradient(135deg, #638b4b 0%, #75a85e 25%, #5e9a52 50%, #3d6c31 100%)',
               }}
             >
               We've Got Answers.
             </span>
           </h2>
+
+          <p className="text-slate-400 text-sm sm:text-lg max-w-2xl mx-auto mt-4">
+            Everything you need to know about how INSURVAS helps you generate, manage, and close more insurance policies.
+          </p>
         </div>
 
         <div className="space-y-3 sm:space-y-4">
@@ -909,44 +979,50 @@ function ContactCard({ icon: Icon, label, value, href }: { icon: React.ElementTy
       href={href || '#'}
       className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl transition-all duration-300 hover:scale-[1.02] group"
       style={{
-        background: 'linear-gradient(145deg, rgba(20, 20, 20, 0.9) 0%, rgba(15, 15, 15, 0.95) 100%)',
-        border: '1px solid rgba(255, 255, 255, 0.08)'
+        background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.09) 100%)',
+        border: '1px solid rgba(255, 255, 255, 0.22)',
+        boxShadow: '0 14px 55px rgba(0, 0, 0, 0.40), inset 0 1px 0 rgba(255, 255, 255, 0.22)',
+        backdropFilter: 'blur(18px)',
+        WebkitBackdropFilter: 'blur(18px)'
       }}
     >
       <div 
         className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center flex-shrink-0"
         style={{
-          background: 'linear-gradient(135deg, rgba(251, 191, 36, 0.15) 0%, rgba(245, 158, 11, 0.08) 100%)',
-          border: '1px solid rgba(251, 191, 36, 0.2)'
+          background: 'linear-gradient(135deg, rgba(99, 139, 75, 0.15) 0%, rgba(99, 139, 75, 0.08) 100%)',
+          border: '1px solid rgba(99, 139, 75, 0.2)'
         }}
       >
-        <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400" />
+        <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-[#638b4b]" />
       </div>
       <div className="flex-1 min-w-0">
         <p className="text-slate-400 text-[10px] sm:text-xs mb-0.5 sm:mb-1">{label}</p>
         <p className="text-white font-semibold text-xs sm:text-sm truncate">{value}</p>
       </div>
-      <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4 text-slate-500 group-hover:text-amber-400 transition-colors flex-shrink-0" />
+      <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4 text-slate-500 group-hover:text-[#638b4b] transition-colors flex-shrink-0" />
     </a>
   )
 }
 
 function Contact() {
   return (
-    <section className="relative py-16 sm:py-24">
+    <section id="contact" className="relative py-16 sm:py-24">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10 sm:mb-16">
           <div 
             className="inline-flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full mb-4 sm:mb-6"
             style={{
-              background: 'rgba(251, 191, 36, 0.1)',
-              border: '1px solid rgba(251, 191, 36, 0.2)'
+              background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.08) 100%)',
+              border: '1px solid rgba(255, 255, 255, 0.22)',
+              boxShadow: '0 10px 35px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.20)',
+              backdropFilter: 'blur(18px)',
+              WebkitBackdropFilter: 'blur(18px)'
             }}
           >
-            <Mail className="w-3 h-3 sm:w-4 sm:h-4 text-amber-400" />
-            <span className="text-amber-400 text-[10px] sm:text-xs font-semibold tracking-wider uppercase">Get In Touch</span>
-            <span className="text-amber-400/60 text-[10px] sm:text-xs hidden sm:inline">—</span>
-            <span className="text-amber-400 text-[10px] sm:text-xs font-semibold">06</span>
+            <Mail className="w-3 h-3 sm:w-4 sm:h-4 text-[#638b4b]" />
+            <span className="text-[#638b4b] text-[10px] sm:text-xs font-semibold tracking-wider uppercase">GET IN TOUCH</span>
+            <span className="text-[#638b4b]/60 text-[10px] sm:text-xs hidden sm:inline">-</span>
+            <span className="text-[#638b4b] text-[10px] sm:text-xs font-semibold">06</span>
           </div>
 
           <h2 className="text-2xl sm:text-4xl lg:text-6xl font-bold mb-3 sm:mb-4">
@@ -954,15 +1030,15 @@ function Contact() {
             <span 
               className="bg-clip-text text-transparent"
               style={{
-                backgroundImage: 'linear-gradient(135deg, #fcd34d 0%, #fbbf24 25%, #f59e0b 50%, #d97706 100%)',
+                backgroundImage: 'linear-gradient(135deg, #638b4b 0%, #75a85e 25%, #5e9a52 50%, #3d6c31 100%)',
               }}
             >
-              Talk Deals.
+              Build Your Insurance Pipeline.
             </span>
           </h2>
 
           <p className="text-slate-400 text-sm sm:text-lg">
-            Have a question or want a demo? We'd love to hear from you.
+            Have questions or want to get started? Connect with our team and see how INSURVAS can help you scale faster.
           </p>
         </div>
 
@@ -971,14 +1047,14 @@ function Contact() {
             <ContactCard 
               icon={Mail}
               label="Email Us"
-              value="support@rain.club"
-              href="mailto:support@rain.club"
+              value="contact@insurvas.com"
+              href="mailto:contact@insurvas.com"
             />
             <ContactCard 
-              icon={MessageSquare}
-              label="Join Discord"
-              value="discord.gg/rainmakers"
-              href="https://discord.gg/rainmakers"
+              icon={Users}
+              label="Join Our Network"
+              value="Connect with agents, agencies, and publishers inside the INSURVAS ecosystem."
+              href="#"
             />
             <ContactCard 
               icon={Phone}
@@ -996,14 +1072,14 @@ function Contact() {
               <div 
                 className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center flex-shrink-0"
                 style={{
-                  background: 'linear-gradient(135deg, rgba(251, 191, 36, 0.15) 0%, rgba(245, 158, 11, 0.08) 100%)',
-                  border: '1px solid rgba(251, 191, 36, 0.2)'
+                  background: 'linear-gradient(135deg, rgba(99, 139, 75, 0.15) 0%, rgba(99, 139, 75, 0.08) 100%)',
+                  border: '1px solid rgba(99, 139, 75, 0.2)'
                 }}
               >
-                <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400" />
+                <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-[#638b4b]" />
               </div>
               <div className="flex-1">
-                <p className="text-slate-400 text-[10px] sm:text-xs mb-0.5 sm:mb-1">Based In</p>
+                <p className="text-slate-400 text-[10px] sm:text-xs mb-0.5 sm:mb-1">Operating Nationwide</p>
                 <p className="text-white font-semibold text-xs sm:text-sm">United States</p>
               </div>
             </div>
@@ -1012,9 +1088,11 @@ function Contact() {
           <div 
             className="rounded-2xl p-5 sm:p-8 order-1 lg:order-2"
             style={{
-              background: 'linear-gradient(145deg, rgba(20, 20, 20, 0.9) 0%, rgba(15, 15, 15, 0.95) 100%)',
-              border: '1px solid rgba(255, 255, 255, 0.08)',
-              boxShadow: '0 4px 30px rgba(0, 0, 0, 0.3)'
+              background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.06) 100%)',
+              border: '1px solid rgba(255, 255, 255, 0.18)',
+              boxShadow: '0 12px 45px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.16)',
+              backdropFilter: 'blur(18px)',
+              WebkitBackdropFilter: 'blur(18px)'
             }}
           >
             <form className="space-y-4 sm:space-y-6">
@@ -1023,7 +1101,7 @@ function Contact() {
                 <input 
                   type="text"
                   placeholder="Your name"
-                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-amber-500/50 transition-all text-sm sm:text-base"
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-[#638b4b]/50 transition-all text-sm sm:text-base"
                   style={{
                     background: 'rgba(0, 0, 0, 0.3)',
                     border: '1px solid rgba(255, 255, 255, 0.1)'
@@ -1035,7 +1113,7 @@ function Contact() {
                 <input 
                   type="email"
                   placeholder="you@company.com"
-                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-amber-500/50 transition-all text-sm sm:text-base"
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-[#638b4b]/50 transition-all text-sm sm:text-base"
                   style={{
                     background: 'rgba(0, 0, 0, 0.3)',
                     border: '1px solid rgba(255, 255, 255, 0.1)'
@@ -1047,7 +1125,7 @@ function Contact() {
                 <textarea 
                   placeholder="Tell us about your deals..."
                   rows={4}
-                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-amber-500/50 transition-all resize-none text-sm sm:text-base"
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-[#638b4b]/50 transition-all resize-none text-sm sm:text-base"
                   style={{
                     background: 'rgba(0, 0, 0, 0.3)',
                     border: '1px solid rgba(255, 255, 255, 0.1)'
@@ -1058,8 +1136,8 @@ function Contact() {
                 type="submit"
                 className="w-full flex items-center justify-center gap-2 py-3 sm:py-4 rounded-xl font-semibold text-black transition-all hover:scale-[1.02] hover:shadow-lg text-sm sm:text-base"
                 style={{
-                  background: 'linear-gradient(135deg, #fcd34d 0%, #f59e0b 100%)',
-                  boxShadow: '0 0 30px rgba(251, 191, 36, 0.2)'
+                  background: 'linear-gradient(135deg, #638b4b 0%, #3d6c31 100%)',
+                  boxShadow: '0 0 30px rgba(99, 139, 75, 0.2)'
                 }}
               >
                 <Send className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -1080,25 +1158,27 @@ function CTA() {
         <div 
           className="rounded-2xl sm:rounded-3xl p-8 sm:p-12 md:p-16 text-center relative overflow-hidden"
           style={{
-            background: 'linear-gradient(145deg, rgba(20, 20, 20, 0.9) 0%, rgba(15, 15, 15, 0.95) 100%)',
-            border: '1px solid rgba(251, 191, 36, 0.2)',
-            boxShadow: '0 0 60px rgba(251, 191, 36, 0.1)'
+            background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0.06) 100%)',
+            border: '1px solid rgba(255, 255, 255, 0.20)',
+            boxShadow: '0 18px 65px rgba(0, 0, 0, 0.40), inset 0 1px 0 rgba(255, 255, 255, 0.18)',
+            backdropFilter: 'blur(22px)',
+            WebkitBackdropFilter: 'blur(22px)'
           }}
         >
           <div 
             className="absolute inset-0 opacity-30"
             style={{
-              background: 'radial-gradient(ellipse at center, rgba(251, 191, 36, 0.15) 0%, transparent 70%)'
+              background: 'radial-gradient(ellipse at center, rgba(99, 139, 75, 0.15) 0%, transparent 70%)'
             }}
           />
 
           <div className="relative z-10">
             <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold mb-4 sm:mb-6">
-              <span className="text-white">Your Next Deal Is </span>
+              <span className="text-white">Your Next Policy Is </span>
               <span 
                 className="bg-clip-text text-transparent"
                 style={{
-                  backgroundImage: 'linear-gradient(135deg, #fcd34d 0%, #fbbf24 25%, #f59e0b 50%, #d97706 100%)',
+                  backgroundImage: 'linear-gradient(135deg, #638b4b 0%, #75a85e 25%, #5e9a52 50%, #3d6c31 100%)',
                 }}
               >
                 Waiting.
@@ -1106,17 +1186,17 @@ function CTA() {
             </h2>
 
             <p className="text-slate-400 text-sm sm:text-lg mb-6 sm:mb-10 max-w-lg mx-auto">
-              Join 500+ real estate professionals already closing more deals with Rainmakers OS.
+              Join agents, agencies, and publishers already scaling their insurance business with INSURVAS.
             </p>
 
             <button 
               className="group inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-black transition-all hover:scale-105 text-sm sm:text-base"
               style={{
-                background: 'linear-gradient(135deg, #fcd34d 0%, #f59e0b 100%)',
-                boxShadow: '0 0 30px rgba(251, 191, 36, 0.3)'
+                background: 'linear-gradient(135deg, #638b4b 0%, #3d6c31 100%)',
+                boxShadow: '0 0 30px rgba(99, 139, 75, 0.3)'
               }}
             >
-              Start Free Today
+              Get Started Today
               <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
             </button>
           </div>
@@ -1138,35 +1218,32 @@ function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-12 mb-8 sm:mb-12">
           <div className="col-span-2 md:col-span-1">
             <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
-              <div className="flex items-end gap-0.5 h-5 sm:h-6">
-                <div className="w-0.5 sm:w-1 h-2 sm:h-3 bg-amber-500 rounded-full"></div>
-                <div className="w-0.5 sm:w-1 h-4 sm:h-5 bg-amber-500 rounded-full"></div>
-                <div className="w-0.5 sm:w-1 h-3 sm:h-4 bg-amber-500 rounded-full"></div>
-                <div className="w-0.5 sm:w-1 h-5 sm:h-6 bg-amber-500 rounded-full"></div>
-                <div className="w-0.5 sm:w-1 h-3 sm:h-4 bg-amber-500 rounded-full"></div>
-                <div className="w-0.5 sm:w-1 h-4 sm:h-5 bg-amber-500 rounded-full"></div>
-              </div>
-              <span className="text-white font-semibold text-base sm:text-lg">Rainmakers</span>
+              <img
+                src="/logo-main-2.png"
+                alt="INSURVAS"
+                className="h-6 sm:h-7 w-auto select-none"
+                draggable={false}
+              />
             </div>
             <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">
-              The all-in-one operating system for commercial real estate professionals.
+              The all-in-one operating system for insurance professionals - from lead acquisition to final issuance.
             </p>
           </div>
 
           <div>
             <h4 className="text-white font-semibold text-[10px] sm:text-xs uppercase tracking-wider mb-3 sm:mb-4">Platform</h4>
             <ul className="space-y-2 sm:space-y-3">
-              <li><a href="#features" className="text-slate-400 hover:text-amber-400 text-xs sm:text-sm transition-colors">Features</a></li>
-              <li><a href="#case-studies" className="text-slate-400 hover:text-amber-400 text-xs sm:text-sm transition-colors">Case Studies</a></li>
-              <li><a href="#faq" className="text-slate-400 hover:text-amber-400 text-xs sm:text-sm transition-colors">FAQ</a></li>
+              <li><a href="#features" className="text-slate-400 hover:text-[#638b4b] text-xs sm:text-sm transition-colors">Features</a></li>
+              <li><a href="#case-studies" className="text-slate-400 hover:text-[#638b4b] text-xs sm:text-sm transition-colors">Results</a></li>
+              <li><a href="#faq" className="text-slate-400 hover:text-[#638b4b] text-xs sm:text-sm transition-colors">FAQ</a></li>
             </ul>
           </div>
 
           <div>
             <h4 className="text-white font-semibold text-[10px] sm:text-xs uppercase tracking-wider mb-3 sm:mb-4">Legal</h4>
             <ul className="space-y-2 sm:space-y-3">
-              <li><a href="#" className="text-slate-400 hover:text-amber-400 text-xs sm:text-sm transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="text-slate-400 hover:text-amber-400 text-xs sm:text-sm transition-colors">Terms of Service</a></li>
+              <li><a href="#" className="text-slate-400 hover:text-[#638b4b] text-xs sm:text-sm transition-colors">Privacy Policy</a></li>
+              <li><a href="#" className="text-slate-400 hover:text-[#638b4b] text-xs sm:text-sm transition-colors">Terms of Service</a></li>
             </ul>
           </div>
 
@@ -1181,7 +1258,7 @@ function Footer() {
                   border: '1px solid rgba(255, 255, 255, 0.1)'
                 }}
               >
-                <Disc className="w-4 h-4 sm:w-5 sm:h-5 text-slate-400 hover:text-amber-400" />
+                <Disc className="w-4 h-4 sm:w-5 sm:h-5 text-slate-400 hover:text-[#638b4b]" />
               </a>
               <a 
                 href="#" 
@@ -1191,7 +1268,7 @@ function Footer() {
                   border: '1px solid rgba(255, 255, 255, 0.1)'
                 }}
               >
-                <Twitter className="w-4 h-4 sm:w-5 sm:h-5 text-slate-400 hover:text-amber-400" />
+                <Twitter className="w-4 h-4 sm:w-5 sm:h-5 text-slate-400 hover:text-[#638b4b]" />
               </a>
               <a 
                 href="#" 
@@ -1201,7 +1278,7 @@ function Footer() {
                   border: '1px solid rgba(255, 255, 255, 0.1)'
                 }}
               >
-                <Instagram className="w-4 h-4 sm:w-5 sm:h-5 text-slate-400 hover:text-amber-400" />
+                <Instagram className="w-4 h-4 sm:w-5 sm:h-5 text-slate-400 hover:text-[#638b4b]" />
               </a>
               <a 
                 href="#" 
@@ -1211,7 +1288,7 @@ function Footer() {
                   border: '1px solid rgba(255, 255, 255, 0.1)'
                 }}
               >
-                <Linkedin className="w-4 h-4 sm:w-5 sm:h-5 text-slate-400 hover:text-amber-400" />
+                <Linkedin className="w-4 h-4 sm:w-5 sm:h-5 text-slate-400 hover:text-[#638b4b]" />
               </a>
               <a 
                 href="#" 
@@ -1221,7 +1298,7 @@ function Footer() {
                   border: '1px solid rgba(255, 255, 255, 0.1)'
                 }}
               >
-                <Youtube className="w-4 h-4 sm:w-5 sm:h-5 text-slate-400 hover:text-amber-400" />
+                <Youtube className="w-4 h-4 sm:w-5 sm:h-5 text-slate-400 hover:text-[#638b4b]" />
               </a>
             </div>
           </div>
@@ -1234,7 +1311,7 @@ function Footer() {
           }}
         >
           <p className="text-slate-500 text-xs sm:text-sm">
-            © 2026 Rainmakers. All rights reserved.
+            © 2026 INSURVAS. All rights reserved.
           </p>
         </div>
       </div>
@@ -1258,15 +1335,12 @@ function Navigation() {
           }}
         >
           <div className="flex items-center gap-2 sm:gap-3">
-            <div className="flex items-end gap-0.5 h-5 sm:h-6">
-              <div className="w-0.5 sm:w-1 h-2 sm:h-3 bg-amber-500 rounded-full"></div>
-              <div className="w-0.5 sm:w-1 h-4 sm:h-5 bg-amber-500 rounded-full"></div>
-              <div className="w-0.5 sm:w-1 h-3 sm:h-4 bg-amber-500 rounded-full"></div>
-              <div className="w-0.5 sm:w-1 h-5 sm:h-6 bg-amber-500 rounded-full"></div>
-              <div className="w-0.5 sm:w-1 h-3 sm:h-4 bg-amber-500 rounded-full"></div>
-              <div className="w-0.5 sm:w-1 h-4 sm:h-5 bg-amber-500 rounded-full"></div>
-            </div>
-            <span className="text-white font-semibold text-sm sm:text-lg">Rainmakers</span>
+            <img
+              src="/logo-main-2.png"
+              alt="INSURVAS"
+              className="h-7 sm:h-8 w-auto select-none"
+              draggable={false}
+            />
           </div>
           
           <div className="hidden md:flex items-center gap-6 lg:gap-8">
@@ -1277,13 +1351,10 @@ function Navigation() {
           </div>
 
           <div className="hidden md:flex items-center gap-3 sm:gap-4">
-            <button className="text-slate-300 hover:text-white transition-colors text-sm font-medium">
-              Log In
-            </button>
             <button 
               className="flex items-center gap-1.5 sm:gap-2 text-black px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all"
               style={{
-                background: 'linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%)',
+                background: 'linear-gradient(135deg, #638b4b 0%, #3d6c31 100%)',
               }}
             >
               Get Started
@@ -1310,18 +1381,15 @@ function Navigation() {
           >
             <div className="space-y-1">
               <a href="#features" className="block text-slate-300 hover:text-white py-2.5 px-3 rounded-lg hover:bg-white/5 transition-all text-sm">Features</a>
-              <a href="#case-studies" className="block text-slate-300 hover:text-white py-2.5 px-3 rounded-lg hover:bg-white/5 transition-all text-sm">Case Studies</a>
+              <a href="#case-studies" className="block text-slate-300 hover:text-white py-2.5 px-3 rounded-lg hover:bg-white/5 transition-all text-sm">Results</a>
               <a href="#faq" className="block text-slate-300 hover:text-white py-2.5 px-3 rounded-lg hover:bg-white/5 transition-all text-sm">FAQ</a>
               <a href="#contact" className="block text-slate-300 hover:text-white py-2.5 px-3 rounded-lg hover:bg-white/5 transition-all text-sm">Contact</a>
             </div>
             <div className="mt-4 pt-4 space-y-2" style={{ borderTop: '1px solid rgba(255, 255, 255, 0.1)' }}>
-              <button className="w-full text-left text-slate-300 hover:text-white py-2.5 px-3 rounded-lg hover:bg-white/5 transition-all text-sm">
-                Log In
-              </button>
               <button 
                 className="w-full flex items-center justify-center gap-2 text-black px-5 py-3 rounded-xl text-sm font-semibold transition-all"
                 style={{
-                  background: 'linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%)',
+                  background: 'linear-gradient(135deg, #638b4b 0%, #3d6c31 100%)',
                 }}
               >
                 Get Started
@@ -1344,58 +1412,57 @@ function Hero() {
         <div 
           className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full mb-6 sm:mb-8"
           style={{
-            background: 'rgba(251, 191, 36, 0.1)',
-            border: '1px solid rgba(251, 191, 36, 0.3)',
+            background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.09) 100%)',
+            border: '1px solid rgba(255, 255, 255, 0.22)',
+            boxShadow: '0 10px 35px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.22)',
+            backdropFilter: 'blur(18px)',
+            WebkitBackdropFilter: 'blur(18px)'
           }}
         >
-          <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-amber-400" />
-          <span className="text-amber-400 text-[10px] sm:text-xs font-semibold tracking-wider uppercase">
-            The #1 CRE Deal Management Platform
+          <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-[#638b4b]" />
+          <span className="text-[#638b4b] text-[10px] sm:text-xs font-semibold tracking-wider uppercase">
+            The #1 Platform for Insurance Agents, Agencies & Publishers
           </span>
         </div>
 
         <AnimatedHeading />
 
         <p className="text-sm sm:text-lg lg:text-xl text-slate-400 max-w-2xl mx-auto mb-6 sm:mb-10 leading-relaxed">
-          The all-in-one operating system for commercial real estate
-          <br className="hidden sm:block" />
-          professionals — from prospecting to close.
+          The all-in-one operating system for insurance professionals - from lead acquisition to final issuance.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-6 sm:mb-8">
           <button 
             className="group flex items-center gap-2 text-black px-6 sm:px-8 py-3 sm:py-4 rounded-full text-sm sm:text-base font-semibold transition-all hover:scale-105 w-full sm:w-auto justify-center"
             style={{
-              background: 'linear-gradient(135deg, #fcd34d 0%, #f59e0b 100%)',
-              boxShadow: '0 0 30px rgba(251, 191, 36, 0.3)'
+              background: 'linear-gradient(135deg, #638b4b 0%, #3d6c31 100%)',
+              boxShadow: '0 0 30px rgba(99, 139, 75, 0.3)'
             }}
           >
-            Start Free Today
+            Get Started Today
             <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
           </button>
 
         </div>
 
-        <p className="text-slate-500 text-xs sm:text-sm mb-8 sm:mb-12">
-          No credit card required - Cancel anytime - Trusted by 500+ dealmakers
-        </p>
+        <p className="text-slate-500 text-xs sm:text-sm mb-8 sm:mb-12"></p>
 
         <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-slate-400 text-xs sm:text-sm">
           <div className="flex items-center gap-1.5 sm:gap-2">
-            <Shield className="w-3 h-3 sm:w-4 sm:h-4 text-amber-500" />
-            <span>Bank-Level Security</span>
+            <Shield className="w-3 h-3 sm:w-4 sm:h-4 text-[#638b4b]" />
+            <span>Enterprise-Grade Security</span>
           </div>
           <div className="flex items-center gap-1.5 sm:gap-2">
-            <Zap className="w-3 h-3 sm:w-4 sm:h-4 text-amber-500" />
-            <span>AI-Powered Tools</span>
+            <Cpu className="w-3 h-3 sm:w-4 sm:h-4 text-[#638b4b]" />
+            <span>AI-Powered Lead Qualification</span>
           </div>
           <div className="flex items-center gap-1.5 sm:gap-2">
-            <Clock className="w-3 h-3 sm:w-4 sm:h-4 text-amber-500" />
-            <span>Setup in 2 Minutes</span>
+            <Clock className="w-3 h-3 sm:w-4 sm:h-4 text-[#638b4b]" />
+            <span>Setup in Minutes</span>
           </div>
           <div className="flex items-center gap-1.5 sm:gap-2">
-            <Users className="w-3 h-3 sm:w-4 sm:h-4 text-amber-500" />
-            <span>500+ Members</span>
+            <Users className="w-3 h-3 sm:w-4 sm:h-4 text-[#638b4b]" />
+            <span>500+ Active Agents & Agencies</span>
           </div>
         </div>
       </div>

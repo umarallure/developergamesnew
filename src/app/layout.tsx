@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Rainmakers OS',
-  description: 'The all-in-one operating system for commercial real estate professionals — from prospecting to close.',
+  title: 'INSURVAS',
+  description: 'The all-in-one operating system for insurance professionals - from lead acquisition to final issuance.',
 }
 
 export default function RootLayout({
