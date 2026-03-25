@@ -1226,7 +1226,7 @@ function Footer() {
               />
             </div>
             <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">
-              The all-in-one operating system for insurance professionals - from lead acquisition to final issuance.
+              The all-in-one operating system for insurance professionals - from lead acquisition to final issuance.testing
             </p>
           </div>
 
