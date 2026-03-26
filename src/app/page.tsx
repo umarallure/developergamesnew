@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import { 
   Sparkles, Shield, Zap, Clock, Users, ArrowRight,
@@ -7,84 +8,17 @@ import {
   UserCheck, Building2, Gift, TrendingUp, Cpu,
   Target, RefreshCw, Star, Quote, ChevronDown, HelpCircle,
   Mail, MessageSquare, Phone, Send, ExternalLink,
-  Twitter, Instagram, Linkedin, Youtube, Disc, Menu, X
+  Twitter, Instagram, Linkedin, Youtube, Disc
 } from 'lucide-react'
+import { MatrixRain } from '@/components/MatrixRain'
+import { Navigation } from '@/components/Navigation'
+import { Footer } from '@/components/Footer'
 
 function getAvatarUrl(name: string) {
   // Deterministic mapping so each person keeps the same photo.
   const seed = name.split('').reduce((acc, ch) => acc + ch.charCodeAt(0), 0)
   const avatarId = (seed % 70) + 1
   return `https://i.pravatar.cc/160?img=${avatarId}`
-}
-
-function MatrixRain() {
-  useEffect(() => {
-    const canvas = document.getElementById('matrix-canvas') as HTMLCanvasElement | null
-    if (!canvas) return
-    const ctx = canvas.getContext('2d')
-    if (!ctx) return
-
-    const resize = () => {
-      canvas.width = window.innerWidth
-      canvas.height = window.innerHeight
-    }
-    resize()
-
-    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%+-/~{[|`]}'.split('')
-    const fontSize = window.innerWidth < 768 ? 10 : 14
-    let columns = Math.floor(canvas.width / fontSize)
-    let drops: number[] = Array(columns).fill(0).map(() => Math.random() * -100)
-
-    const interval = setInterval(() => {
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)'
-      ctx.fillRect(0, 0, canvas.width, canvas.height)
-
-      ctx.font = `${fontSize}px monospace`
-
-      for (let i = 0; i < drops.length; i++) {
-        const char = chars[Math.floor(Math.random() * chars.length)]
-        const random = Math.random()
-        
-        if (random > 0.8) {
-          ctx.fillStyle = '#638b4b'
-        } else if (random > 0.5) {
-          ctx.fillStyle = 'rgba(99, 139, 75, 0.9)'
-        } else {
-          ctx.fillStyle = 'rgba(99, 139, 75, 0.7)'
-        }
-        
-        ctx.fillText(char, i * fontSize, drops[i] * fontSize)
-        
-        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-          drops[i] = 0
-        }
-        drops[i]++
-      }
-    }, 35)
-
-    window.addEventListener('resize', () => {
-      resize()
-      columns = Math.floor(canvas.width / fontSize)
-      drops = Array(columns).fill(0).map(() => Math.random() * -100)
-    })
-
-    return () => clearInterval(interval)
-  }, [])
-
-  return (
-    <>
-      <canvas 
-        id="matrix-canvas" 
-        className="fixed top-0 left-0 w-full h-full pointer-events-none z-0"
-        style={{ background: 'linear-gradient(180deg, #000000 0%, #0a0a0a 50%, #0d0d00 100%)' }}
-      />
-      <div className="fixed bottom-0 left-0 right-0 h-[60%] pointer-events-none z-0"
-        style={{
-          background: 'linear-gradient(to top, rgba(99, 139, 75, 0.15) 0%, rgba(99, 139, 75, 0.05) 30%, transparent 60%)'
-        }}
-      />
-    </>
-  )
 }
 
 function AnimatedHeading() {
@@ -1197,220 +1131,21 @@ function CTA() {
               Join agents, agencies, and publishers already scaling their insurance business with INSURVAS.
             </p>
 
-            <button 
+            <Link
+              href="/schedule"
               className="group inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-black transition-all hover:scale-105 text-sm sm:text-base"
               style={{
                 background: 'linear-gradient(135deg, #638b4b 0%, #3d6c31 100%)',
-                boxShadow: '0 0 30px rgba(99, 139, 75, 0.3)'
+                boxShadow: '0 0 30px rgba(99, 139, 75, 0.3)',
               }}
             >
               Get Started Today
               <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
-            </button>
+            </Link>
           </div>
         </div>
       </div>
     </section>
-  )
-}
-
-function Footer() {
-  return (
-    <footer className="relative pt-12 sm:pt-20 pb-10 sm:pb-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div
-          className="mb-10 sm:mb-14"
-          style={{
-            height: '1px',
-            background: 'linear-gradient(90deg, transparent 0%, rgba(99, 139, 75, 0.5) 25%, rgba(99, 139, 75, 0.7) 50%, rgba(99, 139, 75, 0.5) 75%, transparent 100%)',
-            boxShadow: '0 0 12px rgba(99, 139, 75, 0.25)'
-          }}
-        />
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-12 mb-8 sm:mb-12">
-          <div className="col-span-2 md:col-span-1">
-            <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
-              <img
-                src="/logo-main-2.png"
-                alt="INSURVAS"
-                className="h-6 sm:h-7 w-auto select-none"
-                draggable={false}
-              />
-            </div>
-            <p className="text-white text-xs sm:text-sm leading-relaxed">
-              The all-in-one operating system for insurance professionals - from lead acquisition to final issuance.
-            </p>
-          </div>
-
-          <div>
-            <h4 className="text-white font-semibold text-[10px] sm:text-xs uppercase tracking-wider mb-3 sm:mb-4">Platform</h4>
-            <ul className="space-y-2 sm:space-y-3">
-              <li><a href="#features" className="text-white hover:text-[#638b4b] text-xs sm:text-sm transition-colors">Features</a></li>
-              <li><a href="#case-studies" className="text-white hover:text-[#638b4b] text-xs sm:text-sm transition-colors">Results</a></li>
-              <li><a href="#faq" className="text-white hover:text-[#638b4b] text-xs sm:text-sm transition-colors">FAQ</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-white font-semibold text-[10px] sm:text-xs uppercase tracking-wider mb-3 sm:mb-4">Legal</h4>
-            <ul className="space-y-2 sm:space-y-3">
-              <li><a href="#" className="text-white hover:text-[#638b4b] text-xs sm:text-sm transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="text-white hover:text-[#638b4b] text-xs sm:text-sm transition-colors">Terms of Service</a></li>
-            </ul>
-          </div>
-
-          <div className="col-span-2 md:col-span-1">
-            <h4 className="text-white font-semibold text-[10px] sm:text-xs uppercase tracking-wider mb-3 sm:mb-4">Connect</h4>
-            <div className="flex gap-2 sm:gap-3">
-              <a 
-                href="#" 
-                className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center transition-all hover:scale-110"
-                style={{
-                  background: 'rgba(255, 255, 255, 0.05)',
-                  border: '1px solid rgba(255, 255, 255, 0.1)'
-                }}
-              >
-                <Disc className="w-4 h-4 sm:w-5 sm:h-5 text-white hover:text-white" />
-              </a>
-              <a 
-                href="#" 
-                className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center transition-all hover:scale-110"
-                style={{
-                  background: 'rgba(255, 255, 255, 0.05)',
-                  border: '1px solid rgba(255, 255, 255, 0.1)'
-                }}
-              >
-                <Twitter className="w-4 h-4 sm:w-5 sm:h-5 text-white hover:text-white" />
-              </a>
-              <a 
-                href="#" 
-                className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center transition-all hover:scale-110"
-                style={{
-                  background: 'rgba(255, 255, 255, 0.05)',
-                  border: '1px solid rgba(255, 255, 255, 0.1)'
-                }}
-              >
-                <Instagram className="w-4 h-4 sm:w-5 sm:h-5 text-white hover:text-white" />
-              </a>
-              <a 
-                href="#" 
-                className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center transition-all hover:scale-110"
-                style={{
-                  background: 'rgba(255, 255, 255, 0.05)',
-                  border: '1px solid rgba(255, 255, 255, 0.1)'
-                }}
-              >
-                <Linkedin className="w-4 h-4 sm:w-5 sm:h-5 text-white hover:text-white" />
-              </a>
-              <a 
-                href="#" 
-                className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center transition-all hover:scale-110"
-                style={{
-                  background: 'rgba(255, 255, 255, 0.05)',
-                  border: '1px solid rgba(255, 255, 255, 0.1)'
-                }}
-              >
-                <Youtube className="w-4 h-4 sm:w-5 sm:h-5 text-white hover:text-white" />
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div 
-          className="pt-6 sm:pt-8 text-center"
-          style={{
-            borderTop: '1px solid rgba(255, 255, 255, 0.12)'
-          }}
-        >
-          <p className="text-white text-xs sm:text-sm">
-            © 2026 INSURVAS. All rights reserved.
-          </p>
-        </div>
-      </div>
-    </footer>
-  )
-}
-
-function Navigation() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-
-  return (
-    <nav className="fixed top-0 left-0 right-0 z-50 px-3 sm:px-4 py-3 sm:py-4">
-      <div className="max-w-7xl mx-auto">
-        <div 
-          className="flex items-center justify-between px-4 sm:px-6 py-2.5 sm:py-3 rounded-full"
-          style={{
-            background: 'rgba(20, 20, 20, 0.8)',
-            backdropFilter: 'blur(20px)',
-            border: '1px solid rgba(255, 255, 255, 0.1)',
-            boxShadow: '0 4px 30px rgba(0, 0, 0, 0.5)'
-          }}
-        >
-          <div className="flex items-center gap-2 sm:gap-3">
-            <img
-              src="/logo-main-2.png"
-              alt="INSURVAS"
-              className="h-7 sm:h-8 w-auto select-none"
-              draggable={false}
-            />
-          </div>
-          
-          <div className="hidden md:flex items-center gap-6 lg:gap-8">
-            <a href="#features" className="text-white hover:text-white transition-colors text-sm">Features</a>
-            <a href="#case-studies" className="text-white hover:text-white transition-colors text-sm">Case Studies</a>
-            <a href="#faq" className="text-white hover:text-white transition-colors text-sm">FAQ</a>
-            <a href="#contact" className="text-white hover:text-white transition-colors text-sm">Contact</a>
-          </div>
-
-          <div className="hidden md:flex items-center gap-3 sm:gap-4">
-            <button 
-              className="flex items-center gap-1.5 sm:gap-2 text-black px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all"
-              style={{
-                background: 'linear-gradient(135deg, #638b4b 0%, #3d6c31 100%)',
-              }}
-            >
-              Get Started
-              <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
-            </button>
-          </div>
-
-          <button 
-            className="md:hidden text-white p-1"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            {mobileMenuOpen ? <X className="w-5 h-5 sm:w-6 sm:h-6" /> : <Menu className="w-5 h-5 sm:w-6 sm:h-6" />}
-          </button>
-        </div>
-
-        {mobileMenuOpen && (
-          <div 
-            className="md:hidden mt-2 rounded-2xl p-4"
-            style={{
-              background: 'rgba(20, 20, 20, 0.95)',
-              backdropFilter: 'blur(20px)',
-              border: '1px solid rgba(255, 255, 255, 0.1)'
-            }}
-          >
-            <div className="space-y-1">
-              <a href="#features" className="block text-white hover:text-white py-2.5 px-3 rounded-lg hover:bg-white/5 transition-all text-sm">Features</a>
-              <a href="#case-studies" className="block text-white hover:text-white py-2.5 px-3 rounded-lg hover:bg-white/5 transition-all text-sm">Results</a>
-              <a href="#faq" className="block text-white hover:text-white py-2.5 px-3 rounded-lg hover:bg-white/5 transition-all text-sm">FAQ</a>
-              <a href="#contact" className="block text-white hover:text-white py-2.5 px-3 rounded-lg hover:bg-white/5 transition-all text-sm">Contact</a>
-            </div>
-            <div className="mt-4 pt-4 space-y-2" style={{ borderTop: '1px solid rgba(255, 255, 255, 0.1)' }}>
-              <button 
-                className="w-full flex items-center justify-center gap-2 text-black px-5 py-3 rounded-xl text-sm font-semibold transition-all"
-                style={{
-                  background: 'linear-gradient(135deg, #638b4b 0%, #3d6c31 100%)',
-                }}
-              >
-                Get Started
-                <ArrowRight className="w-4 h-4" />
-              </button>
-            </div>
-          </div>
-        )}
-      </div>
-    </nav>
   )
 }
 
@@ -1443,16 +1178,17 @@ function Hero() {
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-6 sm:mb-8">
-          <button 
+          <Link
+            href="/schedule"
             className="group flex items-center gap-2 text-black px-6 sm:px-8 py-3 sm:py-4 rounded-full text-sm sm:text-base font-semibold transition-all hover:scale-105 w-full sm:w-auto justify-center"
             style={{
               background: 'linear-gradient(135deg, #638b4b 0%, #3d6c31 100%)',
-              boxShadow: '0 0 30px rgba(99, 139, 75, 0.3)'
+              boxShadow: '0 0 30px rgba(99, 139, 75, 0.3)',
             }}
           >
             Get Started Today
             <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
-          </button>
+          </Link>
 
         </div>
 
@@ -1481,63 +1217,11 @@ function Hero() {
   )
 }
 
-function CalendlyEmbed() {
-  useEffect(() => {
-    const script = document.createElement('script')
-    script.src = 'https://assets.calendly.com/assets/external/widget.js'
-    script.async = true
-    document.body.appendChild(script)
-    return () => {
-      document.body.removeChild(script)
-    }
-  }, [])
-
-  return (
-    <section id="book-demo" className="relative py-10 sm:py-14 overflow-x-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 sm:mb-8">
-        <div className="text-center">
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4">
-            <span className="text-white block">Book a Demo.</span>
-            <span
-              className="bg-clip-text text-transparent block mt-1 sm:mt-2"
-              style={{
-                backgroundImage: 'linear-gradient(135deg, #638b4b 0%, #75a85e 25%, #5e9a52 50%, #3d6c31 100%)',
-              }}
-            >
-              See INSURVAS in Action.
-            </span>
-          </h2>
-          <p className="text-white text-sm sm:text-lg max-w-4xl mx-auto mt-4 sm:whitespace-nowrap">
-            Pick a time that works for you. Our team will walk you through the platform live.
-          </p>
-        </div>
-      </div>
-
-      {/* Full-bleed embed so Calendly uses nearly full viewport width (less empty margin) */}
-      <div className="relative left-1/2 w-screen max-w-[100vw] -translate-x-1/2 px-0 sm:px-1">
-        <div className="overflow-hidden rounded-none sm:rounded-lg border-y border-[rgba(99,139,75,0.22)] sm:border sm:border-[rgba(99,139,75,0.28)]">
-          <div
-            className="calendly-inline-widget calendly-fullbleed w-full"
-            data-url="https://calendly.com/muhammad-u-unlimitedinsurance/new-meeting?hide_gdpr_banner=1&background_color=0b0b0b&text_color=ffffff&primary_color=638b4b"
-            style={{
-              minWidth: '100%',
-              width: '100%',
-              minHeight: 'min(85vh, 820px)',
-              height: 'min(85vh, 820px)'
-            }}
-          />
-        </div>
-      </div>
-    </section>
-  )
-}
-
 export default function Home() {
   return (
     <main className="relative bg-black min-h-screen">
       <Navigation />
       <Hero />
-      <CalendlyEmbed />
       <Features />
       <SuccessStories />
       <Testimonials />

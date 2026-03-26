@@ -51,9 +51,8 @@
     }
   }
 
-  /* Calendly: stretch iframe to full wrapper width (reduces empty gutters) */
-  .calendly-inline-widget,
-  .calendly-inline-widget.calendly-fullbleed {
+  /* Calendly inline widget: full width + force inner container to expand */
+  .calendly-inline-widget {
     width: 100% !important;
     max-width: 100% !important;
     min-width: 0 !important;
