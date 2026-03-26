@@ -1,18 +1,49 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 
 const CALENDLY_URL =
   'https://calendly.com/muhammad-u-unlimitedinsurance/new-meeting?hide_gdpr_banner=1&background_color=0a0a0a&text_color=f4f4f5&primary_color=638b4b'
 
+declare global {
+  interface Window {
+    Calendly?: {
+      initInlineWidget: (opts: { url: string; parentElement: HTMLElement }) => void
+    }
+  }
+}
+
 export function CalendlyEmbed() {
+  const containerRef = useRef<HTMLDivElement>(null)
+
   useEffect(() => {
     const src = 'https://assets.calendly.com/assets/external/widget.js'
-    if (!document.querySelector(`script[src="${src}"]`)) {
+
+    function init() {
+      if (window.Calendly && containerRef.current) {
+        containerRef.current.innerHTML = ''
+        window.Calendly.initInlineWidget({
+          url: CALENDLY_URL,
+          parentElement: containerRef.current,
+        })
+      }
+    }
+
+    const existing = document.querySelector(`script[src="${src}"]`) as HTMLScriptElement | null
+    if (existing && window.Calendly) {
+      init()
+    } else {
       const script = document.createElement('script')
       script.src = src
       script.async = true
+      script.onload = () => init()
       document.head.appendChild(script)
+    }
+
+    return () => {
+      if (containerRef.current) {
+        containerRef.current.innerHTML = ''
+      }
     }
   }, [])
 
@@ -41,8 +72,8 @@ export function CalendlyEmbed() {
       <div className="relative left-1/2 w-screen max-w-[100vw] -translate-x-1/2 px-0">
         <div className="overflow-hidden rounded-none sm:rounded-lg border-y border-[rgba(99,139,75,0.35)] sm:border sm:border-[rgba(99,139,75,0.4)] bg-transparent">
           <div
+            ref={containerRef}
             className="calendly-inline-widget w-full"
-            data-url={CALENDLY_URL}
             style={{
               minHeight: 'calc(100dvh - 14rem)',
               height: 'calc(100dvh - 14rem)',
