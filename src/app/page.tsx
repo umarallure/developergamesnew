@@ -14,11 +14,11 @@ import { MatrixRain } from '@/components/MatrixRain'
 import { Navigation } from '@/components/Navigation'
 import { Footer } from '@/components/Footer'
 
-function getAvatarUrl(name: string) {
-  // Deterministic mapping so each person keeps the same photo.
+function getAvatarUrl(name: string, gender: 'male' | 'female') {
   const seed = name.split('').reduce((acc, ch) => acc + ch.charCodeAt(0), 0)
-  const avatarId = (seed % 70) + 1
-  return `https://i.pravatar.cc/160?img=${avatarId}`
+  const avatarId = seed % 100
+  const genderPath = gender === 'male' ? 'men' : 'women'
+  return `https://randomuser.me/api/portraits/${genderPath}/${avatarId}.jpg`
 }
 
 function AnimatedHeading() {
@@ -28,7 +28,7 @@ function AnimatedHeading() {
   const [isComplete, setIsComplete] = useState(false)
 
   const textLine1 = 'Close More Policies.'
-  const textLine2 = 'Scale Your Insurance Business.'
+  const textLine2 = 'Retain More Customers. Scale.'
 
   useEffect(() => {
     const cursorInterval = setInterval(() => {
@@ -123,8 +123,8 @@ function AnimatedSuccessHeading() {
   const [isComplete, setIsComplete] = useState(false)
   const { ref, shouldAnimate } = useInViewAnimation()
 
-  const textLine1 = 'Real Agents. Real Policies.'
-  const textLine2 = 'Real Revenue.'
+  const textLine1 = 'Manage Agents.'
+  const textLine2 = 'Keep Policies. Scale Revenue.'
 
   useEffect(() => {
     if (!shouldAnimate) return
@@ -387,8 +387,8 @@ function Features() {
 
           <AnimatedFeaturesHeading />
 
-          <p className="text-white text-sm sm:text-lg">
-            One platform. Total control over your leads, agents, and growth.
+          <p className="text-white text-sm sm:text-lg font-medium">
+            One platform. Total control over your leads, clients, and team.
           </p>
         </div>
 
@@ -485,18 +485,18 @@ function SuccessStories() {
       badge: 'VOLUME',
       badgeColor: '#638b4b',
       topBorderColor: 'linear-gradient(90deg, #638b4b, #3d6c31)',
-      title: 'High-intent leads routed in real time to agents and agencies across the network.',
-      description: 'Consistent volume that fuels predictable and scalable growth.',
-      stat: '10,000+',
-      statLabel: 'Leads Delivered Monthly',
+      title: '100,000+ Leads Delivered Monthly',
+      description: 'High-intent leads routed in real time to agents and agencies across the network. Consistent volume that fuels predictable and scalable growth.',
+      stat: '100,000+',
+      statLabel: 'Monthly Lead Volume',
       statColor: '#638b4b'
     },
     {
       badge: 'PERFORMANCE',
       badgeColor: '#638b4b',
       topBorderColor: 'linear-gradient(90deg, #638b4b, #3d6c31)',
-      title: 'Connect with prospects instantly through live transfers and smart routing.',
-      description: 'Close more policies by engaging leads at peak intent.',
+      title: '2X Faster Response & Higher Conversions',
+      description: 'Connect with prospects instantly through live transfers and smart routing. Close more policies by engaging leads at peak intent.',
       stat: '2X',
       statLabel: 'Faster Response & Higher Conversions',
       statColor: '#638b4b'
@@ -505,8 +505,8 @@ function SuccessStories() {
       badge: 'REVENUE',
       badgeColor: '#638b4b',
       topBorderColor: 'linear-gradient(90deg, #638b4b, #3d6c31)',
-      title: 'Agents and agencies are scaling revenue with a system built for performance.',
-      description: 'Turn lead flow into consistent policy growth and long-term income.',
+      title: 'Millions in Premium Generated Across the Platform',
+      description: 'IMO and agencies are scaling revenue with a system built for performance. Turn lead flow into consistent policy growth and long-term income.',
       stat: 'Millions',
       statLabel: 'Premium Generated Across the Platform',
       statColor: '#638b4b'
@@ -586,14 +586,16 @@ function StatCard({ icon: Icon, stat, label }: { icon: React.ElementType, stat: 
   )
 }
 
-function TestimonialCard({ 
+function TestimonialCard({
   quote, 
   name, 
-  role
+  role,
+  gender
 }: { 
   quote: string
   name: string
   role: string
+  gender: 'male' | 'female'
 }) {
   return (
     <div 
@@ -623,7 +625,7 @@ function TestimonialCard({
           style={{ border: '1px solid rgba(99, 139, 75, 0.45)' }}
         >
           <img
-            src={getAvatarUrl(name)}
+            src={getAvatarUrl(name, gender)}
             alt={`${name} avatar`}
             className="w-full h-full object-cover"
             loading="lazy"
@@ -640,9 +642,9 @@ function TestimonialCard({
 
 function Testimonials() {
   const stats = [
-    { icon: Users, stat: '500+', label: 'Active Agents & Agencies' },
-    { icon: Target, stat: '10,000+', label: 'Leads Delivered Monthly' },
-    { icon: TrendingUp, stat: '1,000+', label: 'Policies Closed Monthly' },
+    { icon: Users, stat: '500+', label: 'Active IMOs & Agencies' },
+    { icon: Target, stat: '100,000+', label: 'Leads Delivered Monthly' },
+    { icon: TrendingUp, stat: '100,000+', label: 'Policies Closed Monthly' },
     { icon: RefreshCw, stat: '95%', label: 'Contact Rate on Live Transfers' }
   ]
 
@@ -651,61 +653,61 @@ function Testimonials() {
       quote: 'I went from inconsistent leads to closing policies daily. The live transfers alone changed how I operate.',
       name: 'Jason Miller',
       role: 'Licensed Insurance Agent',
-      initials: 'JM'
+      gender: 'male' as const
     },
     {
             quote: 'Everything is finally in one place. No more juggling tools - just clean lead flow and faster conversions.',
       name: 'Brandon Lewis',
       role: 'Agency Owner',
-      initials: 'BL'
+      gender: 'male' as const
     },
     {
       quote: 'Real-time routing is a game changer. We\'re connecting with serious prospects instantly.',
       name: 'Ashley Carter',
       role: 'Senior Insurance Advisor',
-      initials: 'AC'
+      gender: 'female' as const
     },
     {
       quote: 'We scaled without hiring more people. The system handles the heavy lifting.',
       name: 'Kevin Brooks',
       role: 'Insurance Sales Manager',
-      initials: 'KB'
+      gender: 'male' as const
     },
     {
       quote: 'From lead to policy, everything feels smooth and predictable now. That\'s what we were missing before.',
       name: 'Rachel Thompson',
       role: 'Agency Partner',
-      initials: 'RT'
+      gender: 'female' as const
     },
     {
       quote: 'The speed of connection is unreal. By the time we speak to the lead, they\'re already ready to move forward.',
       name: 'Daniel Foster',
       role: 'Licensed Agent',
-      initials: 'DF'
+      gender: 'male' as const
     },
     {
       quote: 'Lead quality is consistent, and the system keeps our team organized. It\'s helped us grow without chaos.',
       name: 'Nicole Ramirez',
       role: 'Agency Operations Manager',
-      initials: 'NR'
+      gender: 'female' as const
     },
     {
       quote: 'We plugged into INSURVAS and immediately saw better results. More conversations, more policies.',
       name: 'Chris Walker',
       role: 'Independent Insurance Agent',
-      initials: 'CW'
+      gender: 'male' as const
     },
     {
       quote: 'The platform made scaling simple. We\'re closing more without increasing our marketing spend.',
       name: 'Andrew Collins',
       role: 'Agency Owner',
-      initials: 'AC'
+      gender: 'male' as const
     },
     {
       quote: 'It\'s not just leads - it\'s a full system. Everything from routing to closing just works.',
       name: 'Megan Scott',
       role: 'Insurance Consultant',
-      initials: 'MS'
+      gender: 'female' as const
     },
   ]
 
@@ -718,9 +720,6 @@ function Testimonials() {
         }
         .marquee-track {
           animation: marquee 30s linear infinite;
-        }
-        .marquee-track:hover {
-          animation-play-state: paused;
         }
       `}</style>
 
@@ -751,8 +750,8 @@ function Testimonials() {
             </span>
           </h2>
 
-          <p className="text-white text-sm sm:text-lg max-w-2xl mx-auto mt-2 sm:mt-4">
-            Powering agents, agencies, and publishers with real volume, real speed, and real results.
+          <p className="text-white text-sm sm:text-lg max-w-2xl mx-auto mt-2 sm:mt-4 font-medium">
+            Powering IMOs, agencies, and agents with real volume, real insights, and real results.
           </p>
         </div>
 
@@ -784,6 +783,7 @@ function Testimonials() {
                 quote={testimonial.quote}
                 name={testimonial.name}
                 role={testimonial.role}
+                gender={testimonial.gender}
               />
             ))}
             {testimonials.map((testimonial, index) => (
@@ -792,6 +792,7 @@ function Testimonials() {
                 quote={testimonial.quote}
                 name={testimonial.name}
                 role={testimonial.role}
+                gender={testimonial.gender}
               />
             ))}
           </div>
@@ -847,11 +848,11 @@ function FAQ() {
   const faqs = [
     {
       question: 'What is INSURVAS?',
-      answer: 'INSURVAS is an all-in-one platform designed for insurance agents, agencies, and publishers. It helps you manage lead flow, connect with prospects in real time, and scale your policy production - all from one system.'
+      answer: 'INSURVAS is an all-in-one platform designed for insurance IMOs, agencies, and agents. It helps you manage lead flow, connect with prospects in real time, and scale your policy production - all from one system.'
     },
     {
       question: 'Do I need to be a licensed agent to use INSURVAS?',
-      answer: 'Licensed agents can directly receive and close leads on the platform. If you\'re not licensed, you can still join as a publisher (BPO) and generate leads within the ecosystem.'
+      answer: 'Yes - you need to be a licensed agent in order to gain access to the platform.'
     },
     {
       question: 'How are leads distributed?',
@@ -862,16 +863,12 @@ function FAQ() {
       answer: 'The live transfer system connects agents instantly with high-intent prospects over a call. This allows you to engage leads at peak interest and significantly improve conversion rates.'
     },
     {
-      question: 'How do publishers get paid?',
-      answer: 'Publishers are paid based on performance and lead quality. All payouts and performance metrics are tracked transparently within the platform.'
-    },
-    {
       question: 'Can agencies manage multiple agents?',
-      answer: 'Yes - agencies can onboard, manage, and track their entire team within INSURVAS. You get full visibility into performance, lead distribution, and policy outcomes.'
+      answer: 'Yes - IMOs and agencies can onboard, manage, and track their entire team within INSURVAS. You get full visibility into performance, lead distribution, and policy outcomes.'
     },
     {
       question: 'What states are supported?',
-      answer: 'INSURVAS supports agents and agencies operating across multiple states. Lead distribution is aligned with your licensing and compliance requirements.'
+      answer: 'INSURVAS supports IMOs and agencies operating across all 50 states and all U.S. territories. Lead distribution is aligned with your licensing and compliance requirements.'
     }
   ]
 
@@ -905,8 +902,8 @@ function FAQ() {
             </span>
           </h2>
 
-          <p className="text-white text-sm sm:text-lg max-w-2xl mx-auto mt-4">
-            Everything you need to know about how INSURVAS helps you generate, manage, and close more insurance policies.
+          <p className="text-white text-sm sm:text-lg max-w-2xl mx-auto mt-4 font-medium">
+            Everything you need to know about how INSURVAS helps you generate, close, manage, and keep more insurance policies.
           </p>
         </div>
 
@@ -976,7 +973,7 @@ function Contact() {
             <span className="text-[#638b4b] text-[10px] sm:text-xs font-semibold tracking-wider uppercase">GET IN TOUCH</span>
           </div>
 
-          <h2 className="text-2xl sm:text-4xl lg:text-6xl font-bold mb-3 sm:mb-4">
+          <h2 className="text-2xl sm:text-4xl lg:text-6xl font-extrabold mb-3 sm:mb-4">
             <span className="text-white block">Let's Build</span>
             <span 
               className="bg-clip-text text-transparent block mt-1 sm:mt-2"
@@ -988,7 +985,7 @@ function Contact() {
             </span>
           </h2>
 
-          <p className="text-white text-sm sm:text-lg">
+          <p className="text-white text-sm sm:text-lg font-medium">
             Have questions or want to get started? Connect with our team and see how INSURVAS can help you scale faster.
           </p>
         </div>
@@ -1004,7 +1001,7 @@ function Contact() {
             <ContactCard 
               icon={Users}
               label="Join Our Network"
-              value="Connect with agents, agencies, and publishers inside the INSURVAS ecosystem."
+              value="Connect with IMOs, agencies, and agents inside the INSURVAS ecosystem."
               href="#"
             />
             <ContactCard 
@@ -1016,13 +1013,7 @@ function Contact() {
             <ContactCard 
               icon={MapPin}
               label="Operating Nationwide"
-              value="United States"
-              href="#"
-            />
-            <ContactCard
-              icon={MessageSquare}
-              label="Live Support"
-              value="Mon-Sat, 9AM-8PM EST"
+              value="United States - All 50 States & U.S. Territories"
               href="#"
             />
           </div>
@@ -1115,7 +1106,7 @@ function CTA() {
           />
 
           <div className="relative z-10">
-            <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold mb-4 sm:mb-6">
+            <h2 className="text-3xl sm:text-4xl lg:text-6xl font-extrabold mb-4 sm:mb-6">
               <span className="text-white">Your Next Policy Is </span>
               <span 
                 className="bg-clip-text text-transparent"
@@ -1127,8 +1118,8 @@ function CTA() {
               </span>
             </h2>
 
-            <p className="text-white text-sm sm:text-lg mb-6 sm:mb-10 max-w-lg mx-auto">
-              Join agents, agencies, and publishers already scaling their insurance business with INSURVAS.
+            <p className="text-white text-sm sm:text-lg mb-6 sm:mb-10 max-w-lg mx-auto font-medium">
+              Join IMOs, agencies, and agents already scaling their insurance business with INSURVAS.
             </p>
 
             <Link
@@ -1166,15 +1157,15 @@ function Hero() {
           }}
         >
           <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-[#638b4b]" />
-          <span className="text-[#638b4b] text-[10px] sm:text-xs font-semibold tracking-wider uppercase">
-            The #1 Platform for Insurance Agents, Agencies & Publishers
+          <span className="text-[#638b4b] text-xs sm:text-sm font-semibold tracking-wider uppercase">
+            The #1 Platform for Insurance IMOs, Agencies & Agents
           </span>
         </div>
 
         <AnimatedHeading />
 
-        <p className="text-sm sm:text-lg lg:text-xl text-white max-w-2xl mx-auto mb-6 sm:mb-10 leading-relaxed">
-          The all-in-one operating system for insurance professionals - from lead acquisition to final issuance.
+        <p className="text-sm sm:text-lg lg:text-xl text-white max-w-2xl mx-auto mb-6 sm:mb-10 leading-relaxed font-medium">
+          The all-in-one software system for insurance companies. A-Z solutions from lead generation to full book of business retention.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-6 sm:mb-8">
@@ -1191,8 +1182,6 @@ function Hero() {
           </Link>
 
         </div>
-
-        <p className="text-white text-xs sm:text-sm mb-8 sm:mb-12"></p>
 
         <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-white text-xs sm:text-sm">
           <div className="flex items-center gap-1.5 sm:gap-2">
