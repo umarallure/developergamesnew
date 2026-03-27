@@ -1016,6 +1016,12 @@ function Contact() {
               value="United States - All 50 States & U.S. Territories"
               href="#"
             />
+            <ContactCard
+              icon={MessageSquare}
+              label="24/7 Support"
+              value="Round-the-clock assistance for IMOs, agencies, and agents."
+              href="#"
+            />
           </div>
 
           <div 
@@ -1165,7 +1171,9 @@ function Hero() {
         <AnimatedHeading />
 
         <p className="text-sm sm:text-lg lg:text-xl text-white max-w-2xl mx-auto mb-6 sm:mb-10 leading-relaxed font-medium">
-          The all-in-one software system for insurance companies. A-Z solutions from lead generation to full book of business retention.
+          The all-in-one software system for insurance companies.
+          <br />
+          A-Z solutions from lead generation to full book of business retention.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-6 sm:mb-8">
