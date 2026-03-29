@@ -27,8 +27,8 @@ function AnimatedHeading() {
   const [showCursor, setShowCursor] = useState(true)
   const [isComplete, setIsComplete] = useState(false)
 
-  const textLine1 = 'Close More Policies.'
-  const textLine2 = 'Retain More Customers. Scale.'
+  const textLine1 = 'Your Code is Your Passport.'
+  const textLine2 = 'Skip the Resume Pile.'
 
   useEffect(() => {
     const cursorInterval = setInterval(() => {
@@ -70,7 +70,7 @@ function AnimatedHeading() {
 
   return (
     <h1 className="text-3xl sm:text-5xl lg:text-7xl font-bold mb-4 sm:mb-6 leading-tight">
-      <span className="text-white">
+      <span className="text-foreground">
         {line1}
         {!isComplete && line1.length < textLine1.length && (
           <span className={`inline-block w-[3px] h-[1em] bg-[#638b4b] ml-1 ${showCursor ? 'opacity-100' : 'opacity-0'} align-middle`}></span>
@@ -123,8 +123,8 @@ function AnimatedSuccessHeading() {
   const [isComplete, setIsComplete] = useState(false)
   const { ref, shouldAnimate } = useInViewAnimation()
 
-  const textLine1 = 'Manage Agents.'
-  const textLine2 = 'Keep Policies. Scale Revenue.'
+  const textLine1 = 'Your Developer Path.'
+  const textLine2 = 'Skills. Network. Growth.'
 
   useEffect(() => {
     if (!shouldAnimate) return
@@ -170,7 +170,7 @@ function AnimatedSuccessHeading() {
 
   return (
     <h2 ref={ref as any} className="text-2xl sm:text-4xl lg:text-6xl font-bold mb-3 sm:mb-4">
-      <span className="text-white">
+      <span className="text-foreground">
         {line1}
         {shouldAnimate && line1.length > 0 && line1.length < textLine1.length && (
           <span className={`inline-block w-[2px] sm:w-[3px] h-[0.9em] bg-[#638b4b] ml-0.5 sm:ml-1 ${showCursor ? 'opacity-100' : 'opacity-0'} align-middle`}></span>
@@ -201,8 +201,8 @@ function AnimatedFeaturesHeading() {
   const [isComplete, setIsComplete] = useState(false)
   const { ref, shouldAnimate } = useInViewAnimation()
 
-  const textLine1 = 'Everything You Need to Scale'
-  const textLine2 = 'Insurance.'
+  const textLine1 = 'Everything You Need to Excel'
+  const textLine2 = 'As a Developer.'
 
   useEffect(() => {
     if (!shouldAnimate) return
@@ -248,7 +248,7 @@ function AnimatedFeaturesHeading() {
 
   return (
     <h2 ref={ref as any} className="text-2xl sm:text-4xl lg:text-6xl font-bold mb-3 sm:mb-4">
-      <span className="text-white">
+      <span className="text-foreground">
         {line1}
         {shouldAnimate && line1.length > 0 && line1.length < textLine1.length && (
           <span className={`inline-block w-[2px] sm:w-[3px] h-[0.9em] bg-[#638b4b] ml-0.5 sm:ml-1 ${showCursor ? 'opacity-100' : 'opacity-0'} align-middle`}></span>
@@ -327,43 +327,43 @@ function Features() {
   const features = [
     {
       icon: Cpu,
-      title: 'Smart Lead Pipeline',
-      description: 'Track, manage, and prioritize every lead in one centralized system built for insurance workflows. Never lose an opportunity - move prospects seamlessly from inquiry to closed policy.'
+      title: 'Fullstack Development',
+      description: 'End-to-end application development across modern frameworks and cloud platforms.'
+    },
+    {
+      icon: Brain,
+      title: 'AI & Machine Learning',
+      description: 'Building intelligent systems with cutting-edge ML models and AI pipelines.'
+    },
+    {
+      icon: Zap,
+      title: 'DevOps & Automation',
+      description: 'Infrastructure as code, CI/CD pipelines, and scalable system architecture.'
     },
     {
       icon: Target,
-      title: 'Targeted Lead Distribution',
-      description: 'Route leads based on agent licensing, performance, and availability in real time. Ensure the right agent gets the right opportunity - maximizing conversions and speed.'
+      title: 'Algorithmic Logic',
+      description: 'Complex problem-solving and optimization for high-performance systems.'
     },
     {
-      icon: Cpu,
-      title: 'AI Lead Qualification',
-      description: 'Automatically filter and qualify leads based on intent, eligibility, and data signals. Focus only on high-quality prospects that are ready to convert into policies.'
-    },
-    {
-      icon: Shield,
-      title: 'Secure Client Data & Applications',
-      description: 'Store and manage sensitive client information with enterprise-grade security and compliance. Access applications, documents, and records anytime - all in one protected environment.'
-    },
-    {
-      icon: Phone,
-      title: 'Live Transfer System',
-      description: 'Connect agents instantly with high-intent prospects through real-time live calls. Eliminate delays and increase close rates by engaging leads at peak interest.'
-    },
-    {
-      icon: Building2,
-      title: 'Agent & Publisher Network',
-      description: 'Collaborate across a unified ecosystem of agents, agencies, and publishers. Expand your reach and scale faster with a built-in distribution and partner network.'
+      icon: Users,
+      title: '100% Remote-First Culture',
+      description: 'Work from wherever you\'re most productive. We believe talent has no borders and your office should have no limits.'
     },
     {
       icon: RefreshCw,
-      title: 'Real-Time Lead Routing',
-      description: 'Automatically distribute incoming leads with intelligent routing logic. Reduce response time and ensure no lead goes unassigned or untouched.'
+      title: 'Agile Project Management',
+      description: 'No more scope creep. We use streamlined, dev-centric workflows that prioritize shipping code over attending meetings.'
     },
     {
-      icon: BarChart3,
-      title: 'Publisher Payout System',
-      description: 'Track performance, commissions, and payouts with complete transparency. Give publishers a seamless experience while scaling your lead generation engine.'
+      icon: Clock,
+      title: 'True Flexible Timing',
+      description: 'Own your schedule. We measure success by the quality of your output and the milestones you hit, not the hours you clock.'
+    },
+    {
+      icon: Star,
+      title: 'Elite Mentorship & Tools',
+      description: 'Gain access to senior architects and proprietary internal tools designed to help you build faster and smarter.'
     }
   ]
 
@@ -382,13 +382,13 @@ function Features() {
             }}
           >
             <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-[#638b4b]" />
-            <span className="text-[#638b4b] text-[10px] sm:text-xs font-semibold tracking-wider uppercase">PLATFORM FEATURES</span>
+            <span className="text-[#638b4b] text-[10px] sm:text-xs font-semibold tracking-wider uppercase">TECHNICAL & CULTURE</span>
           </div>
 
           <AnimatedFeaturesHeading />
 
-          <p className="text-white text-sm sm:text-lg font-medium">
-            One platform. Total control over your leads, clients, and team.
+          <p className="text-foreground text-sm sm:text-lg font-medium">
+            Technical specializations and work culture designed for elite developers.
           </p>
         </div>
 
@@ -482,33 +482,33 @@ function SuccessCard({
 function SuccessStories() {
   const stories = [
     {
-      badge: 'VOLUME',
+      badge: 'SKILLS',
       badgeColor: '#638b4b',
       topBorderColor: 'linear-gradient(90deg, #638b4b, #3d6c31)',
-      title: '100,000+ Leads Delivered Monthly',
-      description: 'High-intent leads routed in real time to agents and agencies across the network. Consistent volume that fuels predictable and scalable growth.',
-      stat: '100,000+',
-      statLabel: 'Monthly Lead Volume',
+      title: '100% Talent-First Evaluation',
+      description: 'We ignore the alma mater and the prestige logos. We evaluate your actual codebase and engineering logic in real-time. If you can build it, you\'re in.',
+      stat: '100%',
+      statLabel: 'Code Over Credentials',
       statColor: '#638b4b'
     },
     {
-      badge: 'PERFORMANCE',
+      badge: 'NETWORK',
       badgeColor: '#638b4b',
       topBorderColor: 'linear-gradient(90deg, #638b4b, #3d6c31)',
-      title: '2X Faster Response & Higher Conversions',
-      description: 'Connect with prospects instantly through live transfers and smart routing. Close more policies by engaging leads at peak intent.',
-      stat: '2X',
-      statLabel: 'Faster Response & Higher Conversions',
+      title: 'Global Reach Across 24+ Timezones',
+      description: 'Your talent isn\'t geo-fenced. Connect with elite engineering teams from San Francisco to Singapore. Work from anywhere, for the best in the world.',
+      stat: 'Unlimited',
+      statLabel: 'Global Reach',
       statColor: '#638b4b'
     },
     {
-      badge: 'REVENUE',
+      badge: 'GROWTH',
       badgeColor: '#638b4b',
       topBorderColor: 'linear-gradient(90deg, #638b4b, #3d6c31)',
-      title: 'Millions in Premium Generated Across the Platform',
-      description: 'IMO and agencies are scaling revenue with a system built for performance. Turn lead flow into consistent policy growth and long-term income.',
-      stat: 'Millions',
-      statLabel: 'Premium Generated Across the Platform',
+      title: 'Direct Path to Senior Architecture Roles',
+      description: 'Skip the junior-level grind. Our challenges place you directly into high-growth teams with mentorship from senior architects and access to proprietary stacks.',
+      stat: 'Direct',
+      statLabel: 'Hiring Pipeline',
       statColor: '#638b4b'
     }
   ]
@@ -528,13 +528,13 @@ function SuccessStories() {
             }}
           >
             <TrendingUp className="w-3 h-3 sm:w-4 sm:h-4 text-[#638b4b]" />
-            <span className="text-[#638b4b] text-[10px] sm:text-xs font-semibold tracking-wider uppercase">PROVEN PERFORMANCE</span>
+            <span className="text-[#638b4b] text-[10px] sm:text-xs font-semibold tracking-wider uppercase">DEVELOPER SUCCESS</span>
           </div>
 
           <AnimatedSuccessHeading />
 
-          <p className="text-white text-sm sm:text-lg">
-            See how agents and agencies are closing faster, scaling smarter, and growing consistently with INSURVAS.
+          <p className="text-foreground text-sm sm:text-lg">
+            Build your skills, expand your network, and accelerate your growth with elite engineering teams.
           </p>
         </div>
 
@@ -642,72 +642,42 @@ function TestimonialCard({
 
 function Testimonials() {
   const stats = [
-    { icon: Users, stat: '500+', label: 'Active IMOs & Agencies' },
-    { icon: Target, stat: '100,000+', label: 'Leads Delivered Monthly' },
-    { icon: TrendingUp, stat: '100,000+', label: 'Policies Closed Monthly' },
-    { icon: RefreshCw, stat: '95%', label: 'Contact Rate on Live Transfers' }
+    { icon: Users, stat: '5', label: 'Active Global Engineering Teams' },
+    { icon: TrendingUp, stat: '10,000+', label: 'Production Commits Shipped Monthly' },
+    { icon: Clock, stat: '48 Hours', label: 'Average Time from Challenge to Offer' },
+    { icon: Target, stat: '98%', label: 'Retention Rate for Placed Developers' }
   ]
 
   const testimonials = [
     {
-      quote: 'I went from inconsistent leads to closing policies daily. The live transfers alone changed how I operate.',
-      name: 'Jason Miller',
-      role: 'Licensed Insurance Agent',
+      quote: 'The challenge wasn\'t just about coding—it was about solving real problems. I got my offer within 48 hours of completing it.',
+      name: 'Alex Chen',
+      role: 'Fullstack Developer',
       gender: 'male' as const
     },
     {
-            quote: 'Everything is finally in one place. No more juggling tools - just clean lead flow and faster conversions.',
-      name: 'Brandon Lewis',
-      role: 'Agency Owner',
-      gender: 'male' as const
-    },
-    {
-      quote: 'Real-time routing is a game changer. We\'re connecting with serious prospects instantly.',
-      name: 'Ashley Carter',
-      role: 'Senior Insurance Advisor',
+      quote: 'Finally, a hiring process that values actual skills over pedigree. The feedback loop was incredibly valuable.',
+      name: 'Sarah Johnson',
+      role: 'ML Engineer',
       gender: 'female' as const
     },
     {
-      quote: 'We scaled without hiring more people. The system handles the heavy lifting.',
-      name: 'Kevin Brooks',
-      role: 'Insurance Sales Manager',
+      quote: 'From challenge to offer in three days. The team was transparent, the work was exciting, and I felt respected throughout.',
+      name: 'Marcus Williams',
+      role: 'Backend Developer',
       gender: 'male' as const
     },
     {
-      quote: 'From lead to policy, everything feels smooth and predictable now. That\'s what we were missing before.',
-      name: 'Rachel Thompson',
-      role: 'Agency Partner',
+      quote: 'I was skeptical about \'skill-based hiring\' until I experienced it. The challenges mirrored actual production work, and now I\'m building features that impact millions.',
+      name: 'Priya Patel',
+      role: 'Senior Frontend Engineer',
       gender: 'female' as const
     },
     {
-      quote: 'The speed of connection is unreal. By the time we speak to the lead, they\'re already ready to move forward.',
-      name: 'Daniel Foster',
-      role: 'Licensed Agent',
+      quote: 'The mentorship during the trial period was unmatched. They didn\'t just evaluate my code—they helped me grow as an engineer.',
+      name: 'James Rodriguez',
+      role: 'DevOps Engineer',
       gender: 'male' as const
-    },
-    {
-      quote: 'Lead quality is consistent, and the system keeps our team organized. It\'s helped us grow without chaos.',
-      name: 'Nicole Ramirez',
-      role: 'Agency Operations Manager',
-      gender: 'female' as const
-    },
-    {
-      quote: 'We plugged into INSURVAS and immediately saw better results. More conversations, more policies.',
-      name: 'Chris Walker',
-      role: 'Independent Insurance Agent',
-      gender: 'male' as const
-    },
-    {
-      quote: 'The platform made scaling simple. We\'re closing more without increasing our marketing spend.',
-      name: 'Andrew Collins',
-      role: 'Agency Owner',
-      gender: 'male' as const
-    },
-    {
-      quote: 'It\'s not just leads - it\'s a full system. Everything from routing to closing just works.',
-      name: 'Megan Scott',
-      role: 'Insurance Consultant',
-      gender: 'female' as const
     },
   ]
 
@@ -735,23 +705,23 @@ function Testimonials() {
               WebkitBackdropFilter: 'blur(18px)'
             }}
           >
-            <span className="text-[#638b4b] text-[10px] sm:text-xs font-semibold tracking-wider uppercase">CUSTOMER STORIES</span>
+            <span className="text-[#638b4b] text-[10px] sm:text-xs font-semibold tracking-wider uppercase">PERFORMANCE METRICS</span>
           </div>
 
           <h2 className="text-2xl sm:text-4xl lg:text-6xl font-bold mb-3 sm:mb-4">
-            <span className="text-white">Built for Insurance Professionals. </span>
+            <span className="text-foreground">Built for Modern Builders. </span>
             <span 
               className="bg-clip-text text-transparent"
               style={{
                 backgroundImage: 'linear-gradient(135deg, #638b4b 0%, #75a85e 25%, #5e9a52 50%, #3d6c31 100%)',
               }}
             >
-              Backed by Real Results.
+              Backed by High-Performance Metrics.
             </span>
           </h2>
 
-          <p className="text-white text-sm sm:text-lg max-w-2xl mx-auto mt-2 sm:mt-4 font-medium">
-            Powering IMOs, agencies, and agents with real volume, real insights, and real results.
+          <p className="text-foreground text-sm sm:text-lg max-w-2xl mx-auto mt-2 sm:mt-4 font-medium">
+            Powering top-tier developers, rapid-growth startups, and global tech giants with real code, real feedback, and real hires.
           </p>
         </div>
 
@@ -847,28 +817,20 @@ function FAQ() {
 
   const faqs = [
     {
-      question: 'What is INSURVAS?',
-      answer: 'INSURVAS is an all-in-one platform designed for insurance IMOs, agencies, and agents. It helps you manage lead flow, connect with prospects in real time, and scale your policy production - all from one system.'
+      question: 'Is This Just Another Job Posting?',
+      answer: 'No. This is a skill-based competition. Winners move directly to a paid task review and immediate hiring consideration.'
     },
     {
-      question: 'Do I need to be a licensed agent to use INSURVAS?',
-      answer: 'Yes - you need to be a licensed agent in order to gain access to the platform.'
+      question: 'What Do I Need To Bring To The Fight?',
+      answer: 'Your laptop, your brain, and your GitHub. No resume spam—just your skills and your willingness to compete.'
     },
     {
-      question: 'How are leads distributed?',
-      answer: 'Leads are routed in real time based on agent availability, licensing, and performance. This ensures faster response times and higher chances of closing each opportunity.'
+      question: 'What Happens After I Sign Up?',
+      answer: 'Our team reviews your submission. Top candidates are invited to the Developer Games challenge. Win the challenge, pass the workflow task, and receive your offer letter.'
     },
     {
-      question: 'What is the live transfer system?',
-      answer: 'The live transfer system connects agents instantly with high-intent prospects over a call. This allows you to engage leads at peak interest and significantly improve conversion rates.'
-    },
-    {
-      question: 'Can agencies manage multiple agents?',
-      answer: 'Yes - IMOs and agencies can onboard, manage, and track their entire team within INSURVAS. You get full visibility into performance, lead distribution, and policy outcomes.'
-    },
-    {
-      question: 'What states are supported?',
-      answer: 'INSURVAS supports IMOs and agencies operating across all 50 states and all U.S. territories. Lead distribution is aligned with your licensing and compliance requirements.'
+      question: 'What Kind Of Roles Are Available?',
+      answer: 'We place developers in high-growth international teams with mentorship from senior architects and access to elite proprietary tools.'
     }
   ]
 
@@ -891,7 +853,7 @@ function FAQ() {
           </div>
 
           <h2 className="text-2xl sm:text-4xl lg:text-6xl font-bold mb-3 sm:mb-4">
-            <span className="text-white block">Got Questions?</span>
+            <span className="text-foreground block">Got Questions?</span>
             <span 
               className="bg-clip-text text-transparent block mt-1 sm:mt-2"
               style={{
@@ -902,8 +864,8 @@ function FAQ() {
             </span>
           </h2>
 
-          <p className="text-white text-sm sm:text-lg max-w-2xl mx-auto mt-4 font-medium">
-            Everything you need to know about how INSURVAS helps you generate, close, manage, and keep more insurance policies.
+          <p className="text-foreground text-sm sm:text-lg max-w-2xl mx-auto mt-4 font-medium">
+            Everything you need to know about the Developer Games challenge and the hiring process.
           </p>
         </div>
 
@@ -974,19 +936,19 @@ function Contact() {
           </div>
 
           <h2 className="text-2xl sm:text-4xl lg:text-6xl font-extrabold mb-3 sm:mb-4">
-            <span className="text-white block">Let's Build</span>
+            <span className="text-foreground block">Let’s Build</span>
             <span 
               className="bg-clip-text text-transparent block mt-1 sm:mt-2"
               style={{
                 backgroundImage: 'linear-gradient(135deg, #638b4b 0%, #75a85e 25%, #5e9a52 50%, #3d6c31 100%)',
               }}
             >
-              Your Insurance Pipeline.
+              Your Future, Not Your Resume.
             </span>
           </h2>
 
-          <p className="text-white text-sm sm:text-lg font-medium">
-            Have questions or want to get started? Connect with our team and see how INSURVAS can help you scale faster.
+          <p className="text-foreground text-sm sm:text-lg font-medium">
+            Still have questions before entering the arena? Connect with our team and see how we help the world's best builders bypass the noise and get hired.
           </p>
         </div>
 
@@ -1113,19 +1075,11 @@ function CTA() {
 
           <div className="relative z-10">
             <h2 className="text-3xl sm:text-4xl lg:text-6xl font-extrabold mb-4 sm:mb-6">
-              <span className="text-white">Your Next Policy Is </span>
-              <span 
-                className="bg-clip-text text-transparent"
-                style={{
-                  backgroundImage: 'linear-gradient(135deg, #638b4b 0%, #75a85e 25%, #5e9a52 50%, #3d6c31 100%)',
-                }}
-              >
-                Waiting.
-              </span>
+              <span className="text-foreground">Ready To Prove You're a Builder, Not Just A Resume?</span>
             </h2>
 
-            <p className="text-white text-sm sm:text-lg mb-6 sm:mb-10 max-w-lg mx-auto font-medium">
-              Join IMOs, agencies, and agents already scaling their insurance business with INSURVAS.
+            <p className="text-foreground text-sm sm:text-lg mb-6 sm:mb-10 max-w-lg mx-auto font-medium">
+              The next challenge wave starts soon. Spots are limited. Only the builders who show up, code up, and stand out get the offer.
             </p>
 
             <Link
@@ -1136,7 +1090,7 @@ function CTA() {
                 boxShadow: '0 0 30px rgba(99, 139, 75, 0.3)',
               }}
             >
-              Get Started Today
+            PROVE YOUR SKILLS
               <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
@@ -1170,10 +1124,8 @@ function Hero() {
 
         <AnimatedHeading />
 
-        <p className="text-sm sm:text-lg lg:text-xl text-white max-w-2xl mx-auto mb-6 sm:mb-10 leading-relaxed font-medium">
-          The all-in-one software system for insurance companies.
-          <br />
-          A-Z solutions from lead generation to full book of business retention.
+        <p className="text-sm sm:text-lg lg:text-xl text-foreground max-w-2xl mx-auto mb-6 sm:mb-10 leading-relaxed font-medium">
+          Stop waiting weeks for a callback. Compete in real-world engineering challenges, outcode the best, and grab a seat at the table with the world's most ambitious engineering teams.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-6 sm:mb-8">
@@ -1185,7 +1137,7 @@ function Hero() {
               boxShadow: '0 0 30px rgba(99, 139, 75, 0.3)',
             }}
           >
-            Get Started Today
+            ENTER THE ARENA
             <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
           </Link>
 
@@ -1193,20 +1145,20 @@ function Hero() {
 
         <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-white text-xs sm:text-sm">
           <div className="flex items-center gap-1.5 sm:gap-2">
-            <Shield className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
-            <span>Enterprise-Grade Security</span>
-          </div>
-          <div className="flex items-center gap-1.5 sm:gap-2">
-            <Cpu className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
-            <span>AI-Powered Lead Qualification</span>
-          </div>
-          <div className="flex items-center gap-1.5 sm:gap-2">
             <Clock className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
-            <span>Setup in Minutes</span>
+            <span>Asynchronous-First Culture</span>
+          </div>
+          <div className="flex items-center gap-1.5 sm:gap-2">
+            <RefreshCw className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
+            <span>Rapid Hiring Cycles</span>
+          </div>
+          <div className="flex items-center gap-1.5 sm:gap-2">
+            <Target className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
+            <span>Performance-Linked Rewards</span>
           </div>
           <div className="flex items-center gap-1.5 sm:gap-2">
             <Users className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
-            <span>500+ Active Agents & Agencies</span>
+            <span>High-Growth International Teams</span>
           </div>
         </div>
       </div>
@@ -1216,7 +1168,7 @@ function Hero() {
 
 export default function Home() {
   return (
-    <main className="relative bg-black min-h-screen">
+    <main className="relative bg-background min-h-screen">
       <Navigation />
       <Hero />
       <Features />
