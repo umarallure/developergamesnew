@@ -9,8 +9,8 @@ export function Footer() {
           style={{
             height: '1px',
             background:
-              'linear-gradient(90deg, transparent 0%, rgba(99, 139, 75, 0.5) 25%, rgba(99, 139, 75, 0.7) 50%, rgba(99, 139, 75, 0.5) 75%, transparent 100%)',
-            boxShadow: '0 0 12px rgba(99, 139, 75, 0.25)',
+              'linear-gradient(90deg, transparent 0%, rgba(7, 74, 79, 0.45) 25%, rgba(7, 74, 79, 0.65) 50%, rgba(7, 74, 79, 0.45) 75%, transparent 100%)',
+            boxShadow: '0 0 12px rgba(7, 74, 79, 0.35)',
           }}
         />
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-12 mb-8 sm:mb-12">
@@ -23,31 +23,31 @@ export function Footer() {
                 draggable={false}
               />
             </div>
-            <p className="text-foreground text-xs sm:text-sm leading-relaxed">
+            <p className="text-white/90 text-xs sm:text-sm leading-relaxed">
               The all-in-one operating system for insurance professionals - from lead acquisition to final issuance.
             </p>
           </div>
 
           <div>
-            <h4 className="text-foreground font-semibold text-[10px] sm:text-xs uppercase tracking-wider mb-3 sm:mb-4">
+            <h4 className="text-white font-semibold text-[10px] sm:text-xs uppercase tracking-wider mb-3 sm:mb-4">
               Platform
             </h4>
             <ul className="space-y-2 sm:space-y-3">
               <li>
-                <a href="/#features" className="text-foreground hover:text-[#638b4b] text-xs sm:text-sm transition-colors">
+                <a href="/#features" className="text-white hover:text-[#5aaeb2] text-xs sm:text-sm transition-colors">
                   Features
                 </a>
               </li>
               <li>
                 <a
                   href="/#case-studies"
-                  className="text-foreground hover:text-[#638b4b] text-xs sm:text-sm transition-colors"
+                  className="text-white hover:text-[#5aaeb2] text-xs sm:text-sm transition-colors"
                 >
                   Results
                 </a>
               </li>
               <li>
-                <a href="/#faq" className="text-foreground hover:text-[#638b4b] text-xs sm:text-sm transition-colors">
+                <a href="/#faq" className="text-white hover:text-[#5aaeb2] text-xs sm:text-sm transition-colors">
                   FAQ
                 </a>
               </li>
@@ -55,17 +55,17 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="text-foreground font-semibold text-[10px] sm:text-xs uppercase tracking-wider mb-3 sm:mb-4">
+            <h4 className="text-white font-semibold text-[10px] sm:text-xs uppercase tracking-wider mb-3 sm:mb-4">
               Legal
             </h4>
             <ul className="space-y-2 sm:space-y-3">
               <li>
-                <a href="#" className="text-foreground hover:text-[#638b4b] text-xs sm:text-sm transition-colors">
+                <a href="#" className="text-white hover:text-[#5aaeb2] text-xs sm:text-sm transition-colors">
                   Privacy Policy
                 </a>
               </li>
               <li>
-                <a href="#" className="text-foreground hover:text-[#638b4b] text-xs sm:text-sm transition-colors">
+                <a href="#" className="text-white hover:text-[#5aaeb2] text-xs sm:text-sm transition-colors">
                   Terms of Service
                 </a>
               </li>
@@ -73,7 +73,7 @@ export function Footer() {
           </div>
 
           <div className="col-span-2 md:col-span-1">
-            <h4 className="text-foreground font-semibold text-[10px] sm:text-xs uppercase tracking-wider mb-3 sm:mb-4">
+            <h4 className="text-white font-semibold text-[10px] sm:text-xs uppercase tracking-wider mb-3 sm:mb-4">
               Connect
             </h4>
             <div className="flex gap-2 sm:gap-3">
@@ -85,7 +85,7 @@ export function Footer() {
                   border: '1px solid rgba(255, 255, 255, 0.1)',
                 }}
               >
-                <Disc className="w-4 h-4 sm:w-5 sm:h-5 text-foreground hover:text-foreground" />
+                <Disc className="w-4 h-4 sm:w-5 sm:h-5 text-white hover:text-[#5aaeb2]" />
               </a>
               <a
                 href="#"
@@ -95,7 +95,7 @@ export function Footer() {
                   border: '1px solid rgba(255, 255, 255, 0.1)',
                 }}
               >
-                <Twitter className="w-4 h-4 sm:w-5 sm:h-5 text-foreground hover:text-foreground" />
+                <Twitter className="w-4 h-4 sm:w-5 sm:h-5 text-white hover:text-[#5aaeb2]" />
               </a>
               <a
                 href="#"
@@ -105,7 +105,7 @@ export function Footer() {
                   border: '1px solid rgba(255, 255, 255, 0.1)',
                 }}
               >
-                <Instagram className="w-4 h-4 sm:w-5 sm:h-5 text-foreground hover:text-foreground" />
+                <Instagram className="w-4 h-4 sm:w-5 sm:h-5 text-white hover:text-[#5aaeb2]" />
               </a>
               <a
                 href="#"
@@ -115,7 +115,7 @@ export function Footer() {
                   border: '1px solid rgba(255, 255, 255, 0.1)',
                 }}
               >
-                <Linkedin className="w-4 h-4 sm:w-5 sm:h-5 text-foreground hover:text-foreground" />
+                <Linkedin className="w-4 h-4 sm:w-5 sm:h-5 text-white hover:text-[#5aaeb2]" />
               </a>
               <a
                 href="#"
@@ -125,7 +125,7 @@ export function Footer() {
                   border: '1px solid rgba(255, 255, 255, 0.1)',
                 }}
               >
-                <Youtube className="w-4 h-4 sm:w-5 sm:h-5 text-foreground hover:text-foreground" />
+                <Youtube className="w-4 h-4 sm:w-5 sm:h-5 text-white hover:text-[#5aaeb2]" />
               </a>
             </div>
           </div>
@@ -137,8 +137,8 @@ export function Footer() {
             borderTop: '1px solid rgba(255, 255, 255, 0.12)',
           }}
         >
-          <p className="text-foreground text-xs sm:text-sm mb-2">Free to apply. Skill is the only currency.</p>
-          <p className="text-foreground text-xs sm:text-sm">© 2026 INSURVAS. All rights reserved.</p>
+          <p className="text-white/80 text-xs sm:text-sm mb-2">Free to apply. Skill is the only currency.</p>
+          <p className="text-white/60 text-xs sm:text-sm">© 2026 INSURVAS. All rights reserved.</p>
         </div>
       </div>
     </footer>

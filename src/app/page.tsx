@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, type ElementType, type ReactNode } from 'react'
 import { 
   Sparkles, Shield, Zap, Clock, Users, ArrowRight,
   BarChart3, MapPin, Brain, FolderLock, Video,
@@ -19,6 +19,35 @@ function getAvatarUrl(name: string, gender: 'male' | 'female') {
   const avatarId = seed % 100
   const genderPath = gender === 'male' ? 'men' : 'women'
   return `https://randomuser.me/api/portraits/${genderPath}/${avatarId}.jpg`
+}
+
+/** Solid teal pill — same visual language as SKILLS / NETWORK / GROWTH card tags */
+function SectionBadge({
+  children,
+  icon: Icon,
+  className = '',
+  size = 'default',
+}: {
+  children: ReactNode
+  icon?: ElementType
+  className?: string
+  size?: 'default' | 'hero'
+}) {
+  const textClass =
+    size === 'hero' ? 'text-[10px] sm:text-xs md:text-sm leading-snug' : 'text-[10px] sm:text-xs'
+  return (
+    <div
+      className={`inline-flex max-w-full items-center justify-center gap-2 rounded-full px-3 py-1.5 sm:px-4 sm:py-2 ${className}`}
+      style={{
+        background: 'linear-gradient(135deg, #074A4F 0%, #042f33 100%)',
+        border: '1px solid rgba(7, 74, 79, 0.95)',
+        boxShadow: '0 4px 16px rgba(7, 74, 79, 0.35)',
+      }}
+    >
+      {Icon && <Icon className="h-3 w-3 flex-shrink-0 text-white sm:h-4 sm:w-4" aria-hidden />}
+      <span className={`font-semibold uppercase tracking-wider text-white ${textClass}`}>{children}</span>
+    </div>
+  )
 }
 
 function AnimatedHeading() {
@@ -69,23 +98,17 @@ function AnimatedHeading() {
   }, [])
 
   return (
-    <h1 className="text-3xl sm:text-5xl lg:text-7xl font-bold mb-4 sm:mb-6 leading-tight">
-      <span className="text-foreground">
+    <h1 className="text-3xl sm:text-5xl lg:text-7xl font-bold mb-4 sm:mb-6 leading-[1.12] text-balance max-w-5xl mx-auto">
+      <span className="text-white block">
         {line1}
         {!isComplete && line1.length < textLine1.length && (
-          <span className={`inline-block w-[3px] h-[1em] bg-[#638b4b] ml-1 ${showCursor ? 'opacity-100' : 'opacity-0'} align-middle`}></span>
+          <span className={`inline-block w-[3px] h-[1em] bg-[#5aaeb2] ml-1 ${showCursor ? 'opacity-100' : 'opacity-0'} align-middle`}></span>
         )}
       </span>
-      <br />
-      <span 
-        className="bg-clip-text text-transparent"
-        style={{
-          backgroundImage: 'linear-gradient(135deg, #638b4b 0%, #75a85e 25%, #5e9a52 50%, #3d6c31 100%)',
-        }}
-      >
+      <span className="text-teal-luminous block mt-2 sm:mt-3">
         {line2}
         {line2.length > 0 && line2.length < textLine2.length && (
-          <span className={`inline-block w-[3px] h-[1em] bg-[#638b4b] ml-1 ${showCursor ? 'opacity-100' : 'opacity-0'} align-middle`}></span>
+          <span className={`inline-block w-[3px] h-[1em] bg-[#5aaeb2] ml-1 ${showCursor ? 'opacity-100' : 'opacity-0'} align-middle`}></span>
         )}
       </span>
     </h1>
@@ -169,25 +192,23 @@ function AnimatedSuccessHeading() {
   }, [shouldAnimate])
 
   return (
-    <h2 ref={ref as any} className="text-2xl sm:text-4xl lg:text-6xl font-bold mb-3 sm:mb-4">
-      <span className="text-foreground">
+    <h2
+      ref={ref as any}
+      className="text-2xl sm:text-4xl lg:text-6xl font-bold mb-3 sm:mb-4 text-balance max-w-5xl mx-auto leading-[1.12]"
+    >
+      <span className="text-white block">
         {line1}
         {shouldAnimate && line1.length > 0 && line1.length < textLine1.length && (
-          <span className={`inline-block w-[2px] sm:w-[3px] h-[0.9em] bg-[#638b4b] ml-0.5 sm:ml-1 ${showCursor ? 'opacity-100' : 'opacity-0'} align-middle`}></span>
+          <span className={`inline-block w-[2px] sm:w-[3px] h-[0.9em] bg-[#5aaeb2] ml-0.5 sm:ml-1 ${showCursor ? 'opacity-100' : 'opacity-0'} align-middle`}></span>
         )}
       </span>
-      <span 
-        className="bg-clip-text text-transparent"
-        style={{
-          backgroundImage: 'linear-gradient(135deg, #638b4b 0%, #75a85e 25%, #5e9a52 50%, #3d6c31 100%)',
-        }}
-      >
+      <span className="text-teal-luminous block mt-2 sm:mt-3">
         {line2}
         {shouldAnimate && line2.length > 0 && line2.length < textLine2.length && (
-          <span className={`inline-block w-[2px] sm:w-[3px] h-[0.9em] bg-[#638b4b] ml-0.5 sm:ml-1 ${showCursor ? 'opacity-100' : 'opacity-0'} align-middle`}></span>
+          <span className={`inline-block w-[2px] sm:w-[3px] h-[0.9em] bg-[#5aaeb2] ml-0.5 sm:ml-1 ${showCursor ? 'opacity-100' : 'opacity-0'} align-middle`}></span>
         )}
         {shouldAnimate && !isComplete && line1.length >= textLine1.length && line2.length === 0 && (
-          <span className={`inline-block w-[2px] sm:w-[3px] h-[0.9em] bg-[#638b4b] ml-0.5 sm:ml-1 ${showCursor ? 'opacity-100' : 'opacity-0'} align-middle`}></span>
+          <span className={`inline-block w-[2px] sm:w-[3px] h-[0.9em] bg-[#5aaeb2] ml-0.5 sm:ml-1 ${showCursor ? 'opacity-100' : 'opacity-0'} align-middle`}></span>
         )}
       </span>
     </h2>
@@ -201,8 +222,8 @@ function AnimatedFeaturesHeading() {
   const [isComplete, setIsComplete] = useState(false)
   const { ref, shouldAnimate } = useInViewAnimation()
 
-  const textLine1 = 'Everything You Need to Excel'
-  const textLine2 = 'As a Developer.'
+  const textLine1 = 'Everything You Need'
+  const textLine2 = 'to Excel as a Developer.'
 
   useEffect(() => {
     if (!shouldAnimate) return
@@ -247,25 +268,23 @@ function AnimatedFeaturesHeading() {
   }, [shouldAnimate])
 
   return (
-    <h2 ref={ref as any} className="text-2xl sm:text-4xl lg:text-6xl font-bold mb-3 sm:mb-4">
-      <span className="text-foreground">
+    <h2
+      ref={ref as any}
+      className="text-2xl sm:text-4xl lg:text-6xl font-bold mb-3 sm:mb-4 text-balance max-w-4xl mx-auto leading-[1.12]"
+    >
+      <span className="text-white block">
         {line1}
         {shouldAnimate && line1.length > 0 && line1.length < textLine1.length && (
-          <span className={`inline-block w-[2px] sm:w-[3px] h-[0.9em] bg-[#638b4b] ml-0.5 sm:ml-1 ${showCursor ? 'opacity-100' : 'opacity-0'} align-middle`}></span>
+          <span className={`inline-block w-[2px] sm:w-[3px] h-[0.9em] bg-[#5aaeb2] ml-0.5 sm:ml-1 ${showCursor ? 'opacity-100' : 'opacity-0'} align-middle`}></span>
         )}
       </span>
-      <span 
-        className="bg-clip-text text-transparent"
-        style={{
-          backgroundImage: 'linear-gradient(135deg, #638b4b 0%, #75a85e 25%, #5e9a52 50%, #3d6c31 100%)',
-        }}
-      >
+      <span className="text-teal-luminous block mt-2 sm:mt-3">
         {line2}
         {shouldAnimate && line2.length > 0 && line2.length < textLine2.length && (
-          <span className={`inline-block w-[2px] sm:w-[3px] h-[0.9em] bg-[#638b4b] ml-0.5 sm:ml-1 ${showCursor ? 'opacity-100' : 'opacity-0'} align-middle`}></span>
+          <span className={`inline-block w-[2px] sm:w-[3px] h-[0.9em] bg-[#5aaeb2] ml-0.5 sm:ml-1 ${showCursor ? 'opacity-100' : 'opacity-0'} align-middle`}></span>
         )}
         {shouldAnimate && !isComplete && line1.length >= textLine1.length && line2.length === 0 && (
-          <span className={`inline-block w-[2px] sm:w-[3px] h-[0.9em] bg-[#638b4b] ml-0.5 sm:ml-1 ${showCursor ? 'opacity-100' : 'opacity-0'} align-middle`}></span>
+          <span className={`inline-block w-[2px] sm:w-[3px] h-[0.9em] bg-[#5aaeb2] ml-0.5 sm:ml-1 ${showCursor ? 'opacity-100' : 'opacity-0'} align-middle`}></span>
         )}
       </span>
     </h2>
@@ -297,27 +316,34 @@ function FeatureCard({ icon: Icon, title, description, index }: { icon: React.El
         card.style.setProperty('--sc', '1')
       }}
       style={{
-        background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.09) 100%)',
-        border: '1px solid rgba(255, 255, 255, 0.22)',
-        boxShadow: '0 14px 55px rgba(0, 0, 0, 0.40), inset 0 1px 0 rgba(255, 255, 255, 0.22)',
+        background:
+          'linear-gradient(155deg, rgba(255, 255, 255, 0.14) 0%, rgba(7, 74, 79, 0.12) 45%, rgba(0, 0, 0, 0.2) 100%)',
+        border: '1px solid rgba(255, 255, 255, 0.2)',
+        boxShadow:
+          '0 14px 55px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.18), 0 0 0 1px rgba(7, 74, 79, 0.35)',
         backdropFilter: 'blur(18px)',
-        WebkitBackdropFilter: 'blur(18px)'
+        WebkitBackdropFilter: 'blur(18px)',
       }}
     >
       <div 
         className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center mb-2 sm:mb-3"
         style={{
-          background: 'linear-gradient(135deg, rgba(99, 139, 75, 0.16) 0%, rgba(99, 139, 75, 0.08) 100%)',
-          border: '1px solid rgba(99, 139, 75, 0.28)',
-          boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.10)'
+          background: 'linear-gradient(135deg, rgba(90, 174, 178, 0.14) 0%, rgba(7, 74, 79, 0.22) 100%)',
+          border: '1px solid rgba(7, 74, 79, 0.45)',
+          boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 0 12px rgba(7, 74, 79, 0.2)',
         }}
       >
-        <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-[#638b4b]" />
+        <Icon className="w-4 h-4 sm:w-5 sm:h-5 icon-teal-luminous" />
       </div>
-      <h3 className="text-[#638b4b] font-semibold text-base sm:text-lg mb-2">{title}</h3>
-      <p className="text-white text-xs sm:text-sm leading-relaxed">{description}</p>
-      <p className="text-[#638b4b] text-xs sm:text-sm font-semibold mt-2">
+      <h3 className="text-teal-luminous font-semibold text-base sm:text-lg mb-2 leading-snug">
+        {title}
+      </h3>
+      <p className="text-white/90 text-xs sm:text-sm leading-relaxed">{description}</p>
+      <p className="text-teal-luminous text-xs sm:text-sm font-semibold mt-auto pt-2 inline-flex items-center gap-1 transition-opacity hover:opacity-90">
         Learn more
+        <span aria-hidden className="inline-block translate-y-px opacity-90">
+          →
+        </span>
       </p>
     </div>
   )
@@ -371,23 +397,13 @@ function Features() {
     <section id="features" className="relative py-16 sm:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10 sm:mb-16">
-          <div 
-            className="inline-flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full mb-4 sm:mb-6"
-            style={{
-              background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.08) 100%)',
-              border: '1px solid rgba(255, 255, 255, 0.22)',
-              boxShadow: '0 10px 35px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.20)',
-              backdropFilter: 'blur(18px)',
-              WebkitBackdropFilter: 'blur(18px)'
-            }}
-          >
-            <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-[#638b4b]" />
-            <span className="text-[#638b4b] text-[10px] sm:text-xs font-semibold tracking-wider uppercase">TECHNICAL & CULTURE</span>
-          </div>
+          <SectionBadge icon={Sparkles} className="mb-4 sm:mb-6">
+            TECHNICAL & CULTURE
+          </SectionBadge>
 
           <AnimatedFeaturesHeading />
 
-          <p className="text-foreground text-sm sm:text-lg font-medium">
+          <p className="text-foreground text-sm sm:text-lg font-medium max-w-2xl mx-auto text-balance">
             Technical specializations and work culture designed for elite developers.
           </p>
         </div>
@@ -429,7 +445,7 @@ function SuccessCard({
 }) {
   return (
     <div 
-      className="rounded-2xl overflow-hidden transition-all duration-300 hover:scale-[1.02]"
+      className="flex h-full min-h-0 flex-col rounded-2xl overflow-hidden transition-all duration-300 hover:scale-[1.02]"
       style={{
         background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.09) 100%)',
         border: '1px solid rgba(255, 255, 255, 0.22)',
@@ -439,38 +455,40 @@ function SuccessCard({
       }}
     >
       <div 
-        className="h-1 w-full"
+        className="h-1 w-full flex-shrink-0"
         style={{ background: topBorderColor }}
       />
       
-      <div className="p-4 sm:p-6">
+      <div className="flex min-h-0 flex-1 flex-col p-4 sm:p-6">
         <div 
-          className="inline-flex items-center gap-2 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full mb-3 sm:mb-4"
+          className="inline-flex w-fit flex-shrink-0 items-center gap-2 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full mb-3 sm:mb-4"
           style={{
-            background: 'linear-gradient(135deg, #638b4b 0%, #3d6c31 100%)',
-            border: '1px solid rgba(99, 139, 75, 0.95)',
-            boxShadow: '0 4px 16px rgba(99, 139, 75, 0.35)'
+            background: 'linear-gradient(135deg, #074A4F 0%, #042f33 100%)',
+            border: '1px solid rgba(7, 74, 79, 0.95)',
+            boxShadow: '0 4px 16px rgba(7, 74, 79, 0.35)'
           }}
         >
           <span className="text-[10px] sm:text-xs font-semibold uppercase text-white">{badge}</span>
         </div>
 
-        <h3 className="text-white font-bold text-lg sm:text-xl mb-2 sm:mb-3 leading-tight">{title}</h3>
-        <p className="text-white text-xs sm:text-sm leading-relaxed mb-4 sm:mb-6">{description}</p>
+        <h3 className="flex-shrink-0 text-balance text-white font-bold text-lg sm:text-xl mb-2 sm:mb-3 leading-tight">
+          {title}
+        </h3>
+        <p className="min-h-0 flex-1 text-white text-xs sm:text-sm leading-relaxed">{description}</p>
 
         <div 
-          className="rounded-xl p-3 sm:p-4"
+          className="mt-4 flex-shrink-0 rounded-xl p-3 sm:p-4 sm:mt-6"
           style={{
             background:
-              'linear-gradient(135deg, rgba(99, 139, 75, 0.48) 0%, rgba(61, 108, 49, 0.34) 55%, rgba(99, 139, 75, 0.24) 100%)',
-            border: '1px solid rgba(99, 139, 75, 0.62)',
+              'linear-gradient(135deg, rgba(7, 74, 79, 0.48) 0%, rgba(4, 47, 51, 0.34) 55%, rgba(7, 74, 79, 0.24) 100%)',
+            border: '1px solid rgba(7, 74, 79, 0.62)',
             backdropFilter: 'blur(12px)',
             WebkitBackdropFilter: 'blur(12px)',
             boxShadow: '0 8px 24px rgba(0, 0, 0, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.16)'
           }}
         >
           <div className="flex items-center gap-2 sm:gap-3">
-            <span className="text-2xl sm:text-3xl font-bold text-white">{stat}</span>
+            <span className="text-2xl sm:text-3xl font-bold text-white tabular-nums">{stat}</span>
             <span className="text-white text-xs sm:text-sm">{statLabel}</span>
           </div>
         </div>
@@ -483,33 +501,33 @@ function SuccessStories() {
   const stories = [
     {
       badge: 'SKILLS',
-      badgeColor: '#638b4b',
-      topBorderColor: 'linear-gradient(90deg, #638b4b, #3d6c31)',
+      badgeColor: '#074A4F',
+      topBorderColor: 'linear-gradient(90deg, #074A4F, #042f33)',
       title: '100% Talent-First Evaluation',
       description: 'We ignore the alma mater and the prestige logos. We evaluate your actual codebase and engineering logic in real-time. If you can build it, you\'re in.',
       stat: '100%',
       statLabel: 'Code Over Credentials',
-      statColor: '#638b4b'
+      statColor: '#074A4F'
     },
     {
       badge: 'NETWORK',
-      badgeColor: '#638b4b',
-      topBorderColor: 'linear-gradient(90deg, #638b4b, #3d6c31)',
+      badgeColor: '#074A4F',
+      topBorderColor: 'linear-gradient(90deg, #074A4F, #042f33)',
       title: 'Global Reach Across 24+ Timezones',
       description: 'Your talent isn\'t geo-fenced. Connect with elite engineering teams from San Francisco to Singapore. Work from anywhere, for the best in the world.',
       stat: 'Unlimited',
       statLabel: 'Global Reach',
-      statColor: '#638b4b'
+      statColor: '#074A4F'
     },
     {
       badge: 'GROWTH',
-      badgeColor: '#638b4b',
-      topBorderColor: 'linear-gradient(90deg, #638b4b, #3d6c31)',
-      title: 'Direct Path to Senior Architecture Roles',
+      badgeColor: '#074A4F',
+      topBorderColor: 'linear-gradient(90deg, #074A4F, #042f33)',
+      title: 'Direct Path to Senior Architecture',
       description: 'Skip the junior-level grind. Our challenges place you directly into high-growth teams with mentorship from senior architects and access to proprietary stacks.',
       stat: 'Direct',
       statLabel: 'Hiring Pipeline',
-      statColor: '#638b4b'
+      statColor: '#074A4F'
     }
   ]
 
@@ -517,28 +535,18 @@ function SuccessStories() {
     <section id="case-studies" className="relative py-16 sm:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10 sm:mb-16">
-          <div 
-            className="inline-flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full mb-4 sm:mb-6"
-            style={{
-              background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.08) 100%)',
-              border: '1px solid rgba(255, 255, 255, 0.22)',
-              boxShadow: '0 10px 35px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.20)',
-              backdropFilter: 'blur(18px)',
-              WebkitBackdropFilter: 'blur(18px)'
-            }}
-          >
-            <TrendingUp className="w-3 h-3 sm:w-4 sm:h-4 text-[#638b4b]" />
-            <span className="text-[#638b4b] text-[10px] sm:text-xs font-semibold tracking-wider uppercase">DEVELOPER SUCCESS</span>
-          </div>
+          <SectionBadge icon={TrendingUp} className="mb-4 sm:mb-6">
+            DEVELOPER SUCCESS
+          </SectionBadge>
 
           <AnimatedSuccessHeading />
 
-          <p className="text-foreground text-sm sm:text-lg">
+          <p className="text-foreground text-sm sm:text-lg max-w-2xl mx-auto text-balance">
             Build your skills, expand your network, and accelerate your growth with elite engineering teams.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 items-stretch">
           {stories.map((story, index) => (
             <SuccessCard 
               key={index}
@@ -570,15 +578,8 @@ function StatCard({ icon: Icon, stat, label }: { icon: React.ElementType, stat: 
         WebkitBackdropFilter: 'blur(18px)'
       }}
     >
-      <Icon className="w-6 h-6 sm:w-8 sm:h-8 text-[#638b4b] mx-auto mb-2 sm:mb-4" />
-      <div 
-        className="text-2xl sm:text-4xl font-bold mb-1 sm:mb-2"
-        style={{
-          backgroundImage: 'linear-gradient(135deg, #638b4b 0%, #75a85e 25%, #5e9a52 50%, #3d6c31 100%)',
-          WebkitBackgroundClip: 'text',
-          WebkitTextFillColor: 'transparent',
-        }}
-      >
+      <Icon className="w-6 h-6 sm:w-8 sm:h-8 icon-teal-luminous mx-auto mb-2 sm:mb-4" />
+      <div className="text-teal-luminous text-2xl sm:text-4xl font-bold mb-1 sm:mb-2 tabular-nums">
         {stat}
       </div>
       <p className="text-white text-xs sm:text-sm">{label}</p>
@@ -609,7 +610,7 @@ function TestimonialCard({
     >
       <div className="flex gap-0.5 sm:gap-1 mb-3 sm:mb-4">
         {[...Array(5)].map((_, i) => (
-          <Star key={i} className="w-3 h-3 sm:w-4 sm:h-4 fill-[#638b4b] text-[#638b4b]" />
+          <Star key={i} className="w-3 h-3 sm:w-4 sm:h-4 fill-[#5aaeb2] text-[#5aaeb2]" />
         ))}
       </div>
 
@@ -622,7 +623,7 @@ function TestimonialCard({
       <div className="flex items-center gap-2 sm:gap-3">
         <div
           className="w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden flex-shrink-0"
-          style={{ border: '1px solid rgba(99, 139, 75, 0.45)' }}
+          style={{ border: '1px solid rgba(7, 74, 79, 0.45)' }}
         >
           <img
             src={getAvatarUrl(name, gender)}
@@ -695,32 +696,14 @@ function Testimonials() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10 sm:mb-16">
-          <div 
-            className="inline-flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full mb-4 sm:mb-6"
-            style={{
-              background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.08) 100%)',
-              border: '1px solid rgba(255, 255, 255, 0.22)',
-              boxShadow: '0 10px 35px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.20)',
-              backdropFilter: 'blur(18px)',
-              WebkitBackdropFilter: 'blur(18px)'
-            }}
-          >
-            <span className="text-[#638b4b] text-[10px] sm:text-xs font-semibold tracking-wider uppercase">PERFORMANCE METRICS</span>
-          </div>
+          <SectionBadge className="mb-4 sm:mb-6">PERFORMANCE METRICS</SectionBadge>
 
-          <h2 className="text-2xl sm:text-4xl lg:text-6xl font-bold mb-3 sm:mb-4">
-            <span className="text-foreground">Built for Modern Builders. </span>
-            <span 
-              className="bg-clip-text text-transparent"
-              style={{
-                backgroundImage: 'linear-gradient(135deg, #638b4b 0%, #75a85e 25%, #5e9a52 50%, #3d6c31 100%)',
-              }}
-            >
-              Backed by High-Performance Metrics.
-            </span>
+          <h2 className="text-2xl sm:text-4xl lg:text-6xl font-bold mb-3 sm:mb-4 max-w-5xl mx-auto text-balance leading-[1.12]">
+            <span className="text-foreground block">Built for Modern Builders.</span>
+            <span className="text-teal-luminous block mt-2 sm:mt-3">Backed by High-Performance Metrics.</span>
           </h2>
 
-          <p className="text-foreground text-sm sm:text-lg max-w-2xl mx-auto mt-2 sm:mt-4 font-medium">
+          <p className="text-foreground text-sm sm:text-lg max-w-2xl mx-auto mt-2 sm:mt-4 font-medium text-balance">
             Powering top-tier developers, rapid-growth startups, and global tech giants with real code, real feedback, and real hires.
           </p>
         </div>
@@ -778,11 +761,11 @@ function FAQItem({ question, answer, isOpen, onClick }: { question: string, answ
       className="rounded-xl sm:rounded-2xl overflow-hidden transition-all duration-300"
       style={{
         background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.09) 100%)',
-        borderTop: isOpen ? '1px solid rgba(99, 139, 75, 0.3)' : '1px solid rgba(255, 255, 255, 0.08)',
-        borderRight: isOpen ? '1px solid rgba(99, 139, 75, 0.3)' : '1px solid rgba(255, 255, 255, 0.08)',
-        borderBottom: isOpen ? '1px solid rgba(99, 139, 75, 0.3)' : '1px solid rgba(255, 255, 255, 0.08)',
-        borderLeft: isOpen ? '3px solid #638b4b' : '1px solid rgba(255, 255, 255, 0.08)',
-        boxShadow: isOpen ? '0 12px 45px rgba(0, 0, 0, 0.35), 0 0 18px rgba(99, 139, 75, 0.22)' : '0 12px 45px rgba(0, 0, 0, 0.35)',
+        borderTop: isOpen ? '1px solid rgba(7, 74, 79, 0.3)' : '1px solid rgba(255, 255, 255, 0.08)',
+        borderRight: isOpen ? '1px solid rgba(7, 74, 79, 0.3)' : '1px solid rgba(255, 255, 255, 0.08)',
+        borderBottom: isOpen ? '1px solid rgba(7, 74, 79, 0.3)' : '1px solid rgba(255, 255, 255, 0.08)',
+        borderLeft: isOpen ? '3px solid #074A4F' : '1px solid rgba(255, 255, 255, 0.08)',
+        boxShadow: isOpen ? '0 12px 45px rgba(0, 0, 0, 0.35), 0 0 18px rgba(7, 74, 79, 0.22)' : '0 12px 45px rgba(0, 0, 0, 0.35)',
         backdropFilter: 'blur(18px)',
         WebkitBackdropFilter: 'blur(18px)'
       }}
@@ -791,11 +774,11 @@ function FAQItem({ question, answer, isOpen, onClick }: { question: string, answ
         onClick={onClick}
         className="w-full px-4 sm:px-6 py-4 sm:py-5 flex items-center justify-between text-left"
       >
-        <span className={`font-semibold text-sm sm:text-base pr-4 ${isOpen ? 'text-[#638b4b]' : 'text-white'}`}>
+        <span className={`font-semibold text-sm sm:text-base pr-4 ${isOpen ? 'text-teal-luminous' : 'text-white'}`}>
           {question}
         </span>
         <ChevronDown 
-          className={`w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 transition-transform duration-300 ${isOpen ? 'text-[#638b4b] rotate-180' : 'text-white'}`}
+          className={`w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 transition-transform duration-300 ${isOpen ? 'icon-teal-luminous rotate-180' : 'text-white'}`}
         />
       </button>
       
@@ -838,33 +821,16 @@ function FAQ() {
     <section id="faq" className="relative py-16 sm:py-24">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8 sm:mb-12">
-          <div 
-            className="inline-flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full mb-4 sm:mb-6"
-            style={{
-              background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.08) 100%)',
-              border: '1px solid rgba(255, 255, 255, 0.22)',
-              boxShadow: '0 10px 35px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.20)',
-              backdropFilter: 'blur(18px)',
-              WebkitBackdropFilter: 'blur(18px)'
-            }}
-          >
-            <HelpCircle className="w-3 h-3 sm:w-4 sm:h-4 text-[#638b4b]" />
-            <span className="text-[#638b4b] text-[10px] sm:text-xs font-semibold tracking-wider uppercase">FAQ</span>
-          </div>
+          <SectionBadge icon={HelpCircle} className="mb-4 sm:mb-6">
+            FAQ
+          </SectionBadge>
 
-          <h2 className="text-2xl sm:text-4xl lg:text-6xl font-bold mb-3 sm:mb-4">
+          <h2 className="text-2xl sm:text-4xl lg:text-6xl font-bold mb-3 sm:mb-4 max-w-3xl mx-auto text-balance leading-[1.12]">
             <span className="text-foreground block">Got Questions?</span>
-            <span 
-              className="bg-clip-text text-transparent block mt-1 sm:mt-2"
-              style={{
-                backgroundImage: 'linear-gradient(135deg, #638b4b 0%, #75a85e 25%, #5e9a52 50%, #3d6c31 100%)',
-              }}
-            >
-              We've Got Answers.
-            </span>
+            <span className="text-teal-luminous block mt-2 sm:mt-3">We've Got Answers.</span>
           </h2>
 
-          <p className="text-foreground text-sm sm:text-lg max-w-2xl mx-auto mt-4 font-medium">
+          <p className="text-foreground text-sm sm:text-lg max-w-2xl mx-auto mt-4 font-medium text-balance">
             Everything you need to know about the Developer Games challenge and the hiring process.
           </p>
         </div>
@@ -901,8 +867,8 @@ function ContactCard({ icon: Icon, label, value, href }: { icon: React.ElementTy
       <div 
         className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center flex-shrink-0"
         style={{
-          background: 'linear-gradient(135deg, rgba(99, 139, 75, 0.15) 0%, rgba(99, 139, 75, 0.08) 100%)',
-          border: '1px solid rgba(99, 139, 75, 0.2)'
+          background: 'linear-gradient(135deg, rgba(7, 74, 79, 0.15) 0%, rgba(7, 74, 79, 0.08) 100%)',
+          border: '1px solid rgba(7, 74, 79, 0.2)'
         }}
       >
         <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
@@ -921,33 +887,16 @@ function Contact() {
     <section id="contact" className="relative py-16 sm:py-24">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10 sm:mb-16">
-          <div 
-            className="inline-flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full mb-4 sm:mb-6"
-            style={{
-              background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.08) 100%)',
-              border: '1px solid rgba(255, 255, 255, 0.22)',
-              boxShadow: '0 10px 35px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.20)',
-              backdropFilter: 'blur(18px)',
-              WebkitBackdropFilter: 'blur(18px)'
-            }}
-          >
-            <Mail className="w-3 h-3 sm:w-4 sm:h-4 text-[#638b4b]" />
-            <span className="text-[#638b4b] text-[10px] sm:text-xs font-semibold tracking-wider uppercase">GET IN TOUCH</span>
-          </div>
+          <SectionBadge icon={Mail} className="mb-4 sm:mb-6">
+            GET IN TOUCH
+          </SectionBadge>
 
-          <h2 className="text-2xl sm:text-4xl lg:text-6xl font-extrabold mb-3 sm:mb-4">
+          <h2 className="text-2xl sm:text-4xl lg:text-6xl font-extrabold mb-3 sm:mb-4 max-w-4xl mx-auto text-balance leading-[1.12]">
             <span className="text-foreground block">Let’s Build</span>
-            <span 
-              className="bg-clip-text text-transparent block mt-1 sm:mt-2"
-              style={{
-                backgroundImage: 'linear-gradient(135deg, #638b4b 0%, #75a85e 25%, #5e9a52 50%, #3d6c31 100%)',
-              }}
-            >
-              Your Future, Not Your Resume.
-            </span>
+            <span className="text-teal-luminous block mt-2 sm:mt-3">Your Future, Not Your Resume.</span>
           </h2>
 
-          <p className="text-foreground text-sm sm:text-lg font-medium">
+          <p className="text-foreground text-sm sm:text-lg font-medium max-w-2xl mx-auto text-balance">
             Still have questions before entering the arena? Connect with our team and see how we help the world's best builders bypass the noise and get hired.
           </p>
         </div>
@@ -1002,7 +951,7 @@ function Contact() {
                 <input 
                   type="text"
                   placeholder="Your name"
-                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-[#638b4b]/50 transition-all text-sm sm:text-base"
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-[#074A4F]/50 transition-all text-sm sm:text-base"
                   style={{
                     background: 'rgba(0, 0, 0, 0.3)',
                     border: '1px solid rgba(255, 255, 255, 0.1)'
@@ -1014,7 +963,7 @@ function Contact() {
                 <input 
                   type="email"
                   placeholder="you@company.com"
-                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-[#638b4b]/50 transition-all text-sm sm:text-base"
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-[#074A4F]/50 transition-all text-sm sm:text-base"
                   style={{
                     background: 'rgba(0, 0, 0, 0.3)',
                     border: '1px solid rgba(255, 255, 255, 0.1)'
@@ -1026,7 +975,7 @@ function Contact() {
                 <textarea 
                   placeholder="Tell us about your deals..."
                   rows={4}
-                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-[#638b4b]/50 transition-all resize-none text-sm sm:text-base"
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-[#074A4F]/50 transition-all resize-none text-sm sm:text-base"
                   style={{
                     background: 'rgba(0, 0, 0, 0.3)',
                     border: '1px solid rgba(255, 255, 255, 0.1)'
@@ -1035,10 +984,10 @@ function Contact() {
               </div>
               <button 
                 type="submit"
-                className="w-full flex items-center justify-center gap-2 py-3 sm:py-4 rounded-xl font-semibold text-black transition-all hover:scale-[1.02] hover:shadow-lg text-sm sm:text-base"
+                className="w-full flex items-center justify-center gap-2 py-3 sm:py-4 rounded-xl font-semibold text-[#FFFFFF] transition-all hover:scale-[1.02] hover:shadow-lg text-sm sm:text-base"
                 style={{
-                  background: 'linear-gradient(135deg, #638b4b 0%, #3d6c31 100%)',
-                  boxShadow: '0 0 30px rgba(99, 139, 75, 0.2)'
+                  background: 'linear-gradient(135deg, #074A4F 0%, #042f33 100%)',
+                  boxShadow: '0 0 30px rgba(7, 74, 79, 0.2)'
                 }}
               >
                 <Send className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -1069,25 +1018,26 @@ function CTA() {
           <div 
             className="absolute inset-0 opacity-30"
             style={{
-              background: 'radial-gradient(ellipse at center, rgba(99, 139, 75, 0.15) 0%, transparent 70%)'
+              background: 'radial-gradient(ellipse at center, rgba(7, 74, 79, 0.15) 0%, transparent 70%)'
             }}
           />
 
           <div className="relative z-10">
-            <h2 className="text-3xl sm:text-4xl lg:text-6xl font-extrabold mb-4 sm:mb-6">
-              <span className="text-foreground">Ready To Prove You're a Builder, Not Just A Resume?</span>
+            <h2 className="text-3xl sm:text-4xl lg:text-6xl font-extrabold mb-4 sm:mb-6 max-w-4xl mx-auto text-balance leading-[1.12]">
+              <span className="text-foreground block">Ready To Prove You're a Builder,</span>
+              <span className="text-teal-luminous block mt-2 sm:mt-3">Not Just A Resume?</span>
             </h2>
 
-            <p className="text-foreground text-sm sm:text-lg mb-6 sm:mb-10 max-w-lg mx-auto font-medium">
+            <p className="text-foreground text-sm sm:text-lg mb-6 sm:mb-10 max-w-lg mx-auto font-medium text-balance">
               The next challenge wave starts soon. Spots are limited. Only the builders who show up, code up, and stand out get the offer.
             </p>
 
             <Link
               href="/schedule"
-              className="group inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-black transition-all hover:scale-105 text-sm sm:text-base"
+              className="group inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-[#FFFFFF] transition-all hover:scale-105 text-sm sm:text-base"
               style={{
-                background: 'linear-gradient(135deg, #638b4b 0%, #3d6c31 100%)',
-                boxShadow: '0 0 30px rgba(99, 139, 75, 0.3)',
+                background: 'linear-gradient(135deg, #074A4F 0%, #042f33 100%)',
+                boxShadow: '0 0 30px rgba(7, 74, 79, 0.3)',
               }}
             >
             PROVE YOUR SKILLS
@@ -1106,35 +1056,23 @@ function Hero() {
       <MatrixRain />
       
       <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
-        <div 
-          className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full mb-6 sm:mb-8"
-          style={{
-            background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.09) 100%)',
-            border: '1px solid rgba(255, 255, 255, 0.22)',
-            boxShadow: '0 10px 35px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.22)',
-            backdropFilter: 'blur(18px)',
-            WebkitBackdropFilter: 'blur(18px)'
-          }}
-        >
-          <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-[#638b4b]" />
-          <span className="text-[#638b4b] text-xs sm:text-sm font-semibold tracking-wider uppercase">
-            The #1 Platform for Insurance IMOs, Agencies & Agents
-          </span>
-        </div>
+        <SectionBadge icon={Sparkles} size="hero" className="mb-6 sm:mb-8">
+          The #1 Platform for Insurance IMOs, Agencies & Agents
+        </SectionBadge>
 
         <AnimatedHeading />
 
-        <p className="text-sm sm:text-lg lg:text-xl text-foreground max-w-2xl mx-auto mb-6 sm:mb-10 leading-relaxed font-medium">
+        <p className="text-sm sm:text-lg lg:text-xl text-foreground max-w-2xl mx-auto mb-6 sm:mb-10 leading-relaxed font-medium text-balance">
           Stop waiting weeks for a callback. Compete in real-world engineering challenges, outcode the best, and grab a seat at the table with the world's most ambitious engineering teams.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-6 sm:mb-8">
           <Link
             href="/schedule"
-            className="group flex items-center gap-2 text-black px-6 sm:px-8 py-3 sm:py-4 rounded-full text-sm sm:text-base font-semibold transition-all hover:scale-105 w-full sm:w-auto justify-center"
+            className="group flex items-center gap-2 text-[#FFFFFF] px-6 sm:px-8 py-3 sm:py-4 rounded-full text-sm sm:text-base font-semibold transition-all hover:scale-105 w-full sm:w-auto justify-center"
             style={{
-              background: 'linear-gradient(135deg, #638b4b 0%, #3d6c31 100%)',
-              boxShadow: '0 0 30px rgba(99, 139, 75, 0.3)',
+              background: 'linear-gradient(135deg, #074A4F 0%, #042f33 100%)',
+              boxShadow: '0 0 30px rgba(7, 74, 79, 0.3)',
             }}
           >
             ENTER THE ARENA

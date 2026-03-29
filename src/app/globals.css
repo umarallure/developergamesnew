@@ -4,8 +4,9 @@
 
 @layer base {
   :root {
-    --background: #FFFFFF;
-    --foreground: #074A4F;
+    --background: #ffffff;
+    --foreground: #ffffff;
+    --accent: #074a4f;
   }
 
   * {
@@ -25,11 +26,32 @@
   }
   
   ::selection {
-    background-color: rgba(99, 139, 75, 0.3);
+    background-color: rgba(7, 74, 79, 0.35);
   }
 }
 
 @layer utilities {
+  /* Brand-true teal: stays in #074A4F family — readable on dark without mint/neon bloom */
+  .text-teal-luminous {
+    background-image: linear-gradient(
+      135deg,
+      #5aaeb2 0%,
+      #3d8d91 28%,
+      #1a6569 58%,
+      #074a4f 88%,
+      #053538 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  .icon-teal-luminous {
+    color: #5aaeb2;
+    filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.45));
+  }
+
   .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;

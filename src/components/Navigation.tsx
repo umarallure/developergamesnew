@@ -16,8 +16,9 @@ export function Navigation() {
         <div
           className="flex items-center justify-between px-4 sm:px-6 py-2.5 sm:py-3 rounded-full"
           style={{
-            background: 'rgba(20, 20, 20, 0.8)',
+            background: 'rgba(20, 20, 20, 0.82)',
             backdropFilter: 'blur(20px)',
+            WebkitBackdropFilter: 'blur(20px)',
             border: '1px solid rgba(255, 255, 255, 0.1)',
             boxShadow: '0 4px 30px rgba(0, 0, 0, 0.5)',
           }}
@@ -52,9 +53,10 @@ export function Navigation() {
             {isSchedule ? (
               <Link
                 href="/"
-                className="flex items-center gap-1.5 sm:gap-2 text-black px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all"
+                className="flex items-center gap-1.5 sm:gap-2 text-[#FFFFFF] px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all"
                 style={{
-                  background: 'linear-gradient(135deg, #638b4b 0%, #3d6c31 100%)',
+                  background: 'linear-gradient(135deg, #074A4F 0%, #042f33 100%)',
+                  boxShadow: '0 4px 20px rgba(7, 74, 79, 0.45)',
                 }}
               >
                 <ArrowLeft className="w-3 h-3 sm:w-4 sm:h-4" />
@@ -63,9 +65,10 @@ export function Navigation() {
             ) : (
               <Link
                 href="/schedule"
-                className="flex items-center gap-1.5 sm:gap-2 text-black px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all"
+                className="flex items-center gap-1.5 sm:gap-2 text-[#FFFFFF] px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all"
                 style={{
-                  background: 'linear-gradient(135deg, #638b4b 0%, #3d6c31 100%)',
+                  background: 'linear-gradient(135deg, #074A4F 0%, #042f33 100%)',
+                  boxShadow: '0 4px 20px rgba(7, 74, 79, 0.45)',
                 }}
               >
                 Get Started
@@ -85,6 +88,7 @@ export function Navigation() {
             style={{
               background: 'rgba(20, 20, 20, 0.95)',
               backdropFilter: 'blur(20px)',
+              WebkitBackdropFilter: 'blur(20px)',
               border: '1px solid rgba(255, 255, 255, 0.1)',
             }}
           >
@@ -118,9 +122,10 @@ export function Navigation() {
               {isSchedule ? (
                 <Link
                   href="/"
-                  className="w-full flex items-center justify-center gap-2 text-black px-5 py-3 rounded-xl text-sm font-semibold transition-all"
+                  className="w-full flex items-center justify-center gap-2 text-[#FFFFFF] px-5 py-3 rounded-xl text-sm font-semibold transition-all"
                   style={{
-                    background: 'linear-gradient(135deg, #638b4b 0%, #3d6c31 100%)',
+                    background: 'linear-gradient(135deg, #074A4F 0%, #042f33 100%)',
+                    boxShadow: '0 4px 20px rgba(7, 74, 79, 0.45)',
                   }}
                 >
                   <ArrowLeft className="w-4 h-4" />
@@ -129,9 +134,10 @@ export function Navigation() {
               ) : (
                 <Link
                   href="/schedule"
-                  className="w-full flex items-center justify-center gap-2 text-black px-5 py-3 rounded-xl text-sm font-semibold transition-all"
+                  className="w-full flex items-center justify-center gap-2 text-[#FFFFFF] px-5 py-3 rounded-xl text-sm font-semibold transition-all"
                   style={{
-                    background: 'linear-gradient(135deg, #638b4b 0%, #3d6c31 100%)',
+                    background: 'linear-gradient(135deg, #074A4F 0%, #042f33 100%)',
+                    boxShadow: '0 4px 20px rgba(7, 74, 79, 0.45)',
                   }}
                 >
                   Get Started

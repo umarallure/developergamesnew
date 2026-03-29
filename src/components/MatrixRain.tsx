@@ -31,11 +31,11 @@ export function MatrixRain() {
         const random = Math.random()
 
         if (random > 0.8) {
-          ctx.fillStyle = '#638b4b'
+          ctx.fillStyle = '#074A4F'
         } else if (random > 0.5) {
-          ctx.fillStyle = 'rgba(99, 139, 75, 0.9)'
+          ctx.fillStyle = 'rgba(7, 74, 79, 0.9)'
         } else {
-          ctx.fillStyle = 'rgba(99, 139, 75, 0.7)'
+          ctx.fillStyle = 'rgba(7, 74, 79, 0.7)'
         }
 
         ctx.fillText(char, i * fontSize, drops[i] * fontSize)
@@ -61,13 +61,13 @@ export function MatrixRain() {
       <canvas
         id="matrix-canvas"
         className="fixed top-0 left-0 w-full h-full pointer-events-none z-0"
-        style={{ background: 'linear-gradient(180deg, #000000 0%, #0a0a0a 50%, #0d0d00 100%)' }}
+        style={{ background: 'linear-gradient(180deg, #000000 0%, #050a0b 50%, #020808 100%)' }}
       />
       <div
         className="fixed bottom-0 left-0 right-0 h-[60%] pointer-events-none z-0"
         style={{
           background:
-            'linear-gradient(to top, rgba(99, 139, 75, 0.15) 0%, rgba(99, 139, 75, 0.05) 30%, transparent 60%)',
+            'linear-gradient(to top, rgba(7, 74, 79, 0.18) 0%, rgba(7, 74, 79, 0.06) 30%, transparent 60%)',
         }}
       />
     </>
