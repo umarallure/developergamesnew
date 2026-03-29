@@ -1057,7 +1057,7 @@ function Hero() {
       
       <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
         <SectionBadge icon={Sparkles} size="hero" className="mb-6 sm:mb-8">
-          The #1 Platform for Insurance IMOs, Agencies & Agents
+          The #1 Platform for Skill-Based Developer Hiring
         </SectionBadge>
 
         <AnimatedHeading />

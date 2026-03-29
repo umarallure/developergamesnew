@@ -49,19 +49,7 @@ export function CalendlyEmbed() {
 
   return (
     <section id="book-demo" className="relative py-8 sm:py-10 overflow-x-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 sm:mb-8">
-        <div className="text-center">
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 max-w-4xl mx-auto text-balance leading-[1.12]">
-            <span className="text-white block">Book a Demo.</span>
-            <span className="text-teal-luminous block mt-2 sm:mt-3">See INSURVAS in Action.</span>
-          </h2>
-          <p className="text-white text-sm sm:text-lg max-w-4xl mx-auto mt-4 sm:whitespace-nowrap">
-            Pick a time that works for you. Our team will walk you through the platform live.
-          </p>
-        </div>
-      </div>
-
-      <div className="relative left-1/2 w-screen max-w-[100vw] -translate-x-1/2 px-0">
+      <div className="relative left-1/2 w-screen -translate-x-1/2 px-0">
         <div className="overflow-hidden rounded-none sm:rounded-lg border-y border-[rgba(7,74,79,0.4)] sm:border sm:border-[rgba(7,74,79,0.45)] bg-transparent">
           <div
             ref={containerRef}

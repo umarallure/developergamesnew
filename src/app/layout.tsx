@@ -3,7 +3,7 @@ import './globals.css'
 
 export const metadata: Metadata = {
   title: 'INSURVAS',
-  description: 'The all-in-one operating system for insurance professionals - from lead acquisition to final issuance.',
+  description: 'The complete engine for merit-based engineering—from proof of skill to high-growth placement.',
 }
 
 export default function RootLayout({

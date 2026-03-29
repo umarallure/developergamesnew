@@ -24,7 +24,7 @@ export function Footer() {
               />
             </div>
             <p className="text-white/90 text-xs sm:text-sm leading-relaxed">
-              The all-in-one operating system for insurance professionals - from lead acquisition to final issuance.
+              The complete engine for merit-based engineering—from proof of skill to high-growth placement.
             </p>
           </div>
 
