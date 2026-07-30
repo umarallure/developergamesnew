@@ -1,0 +1,294 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------ */
+/*  Design tokens — The Developer Games                                */
+/* ------------------------------------------------------------------ */
+
+:root {
+  --background: #091413;
+  --background-deep: #020909;
+  --surface: #0d1b18;
+  --surface-elevated: #10241f;
+
+  --brand-dark: #285a48;
+  --brand-mid: #408a71;
+  --brand-light: #b0e4cc;
+
+  --text-primary: #ecf7f2;
+  --text-secondary: #91a8a0;
+
+  --border-subtle: rgba(176, 228, 204, 0.14);
+  --border-active: rgba(176, 228, 204, 0.34);
+
+  --energy-deep: #004040;
+  --energy-mid: #006464;
+  --energy-primary: #00dfdf;
+  --energy-text: #e9ffff;
+
+  --danger: #ffa599;
+
+  --nav-height: 4.25rem;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-background-deep: var(--background-deep);
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-brand-dark: var(--brand-dark);
+  --color-brand-mid: var(--brand-mid);
+  --color-brand-light: var(--brand-light);
+  --color-foreground: var(--text-primary);
+  --color-muted: var(--text-secondary);
+  --color-line: var(--border-subtle);
+  --color-line-active: var(--border-active);
+  --color-energy: var(--energy-primary);
+  --color-energy-mid: var(--energy-mid);
+  --color-energy-deep: var(--energy-deep);
+  --color-energy-text: var(--energy-text);
+  --color-danger: var(--danger);
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-space-grotesk), var(--font-geist-sans),
+    ui-sans-serif, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo,
+    monospace;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Base                                                               */
+/* ------------------------------------------------------------------ */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--nav-height) + 1.5rem);
+  overflow-x: clip;
+  scrollbar-color: var(--brand-dark) var(--background-deep);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--text-primary);
+  overflow-x: clip;
+  font-synthesis-weight: none;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: rgba(0, 223, 223, 0.22);
+  color: var(--energy-text);
+}
+
+:focus-visible {
+  outline: 1px solid var(--energy-primary);
+  outline-offset: 3px;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Scroll-reveal initial state                                        */
+/*  Only hidden when JS is running and motion is allowed; the          */
+/*  RevealManager animates these into place.                           */
+/* ------------------------------------------------------------------ */
+
+@media (prefers-reduced-motion: no-preference) {
+  .js [data-reveal] {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+
+  /* Hero entrance timeline owns these (see hero-section.tsx) */
+  .js [data-hero-reveal] {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+
+  .js [data-hero-line] > span {
+    transform: translateY(112%);
+  }
+}
+
+/* Masked headline lines: wrapper clips, inner span slides */
+[data-hero-line] {
+  display: block;
+  overflow: hidden;
+}
+
+[data-hero-line] > span {
+  display: inline-block;
+  will-change: transform;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Layout utilities                                                   */
+/* ------------------------------------------------------------------ */
+
+.container-page {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 88rem;
+  padding-inline: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .container-page {
+    padding-inline: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-page {
+    padding-inline: 3.5rem;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container-page {
+    padding-inline: 5rem;
+  }
+}
+
+/* Monospaced technical label */
+.tech-label {
+  font-family: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo,
+    monospace;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+/* Fine background grid — combine with low opacity / masks */
+.grid-faint {
+  background-image: linear-gradient(
+      to right,
+      var(--border-subtle) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, var(--border-subtle) 1px, transparent 1px);
+  background-size: 96px 96px;
+}
+
+/* Corner tick marks for cards and framed blocks */
+.corner-marks {
+  position: relative;
+}
+
+.corner-marks::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: linear-gradient(var(--border-active), var(--border-active)),
+    linear-gradient(var(--border-active), var(--border-active)),
+    linear-gradient(var(--border-active), var(--border-active)),
+    linear-gradient(var(--border-active), var(--border-active)),
+    linear-gradient(var(--border-active), var(--border-active)),
+    linear-gradient(var(--border-active), var(--border-active)),
+    linear-gradient(var(--border-active), var(--border-active)),
+    linear-gradient(var(--border-active), var(--border-active));
+  background-repeat: no-repeat;
+  background-size: 10px 1px, 1px 10px, 10px 1px, 1px 10px, 10px 1px, 1px 10px,
+    10px 1px, 1px 10px;
+  background-position: left top, left top, right top, right top, left bottom,
+    left bottom, right bottom, right bottom;
+}
+
+/* Full-page film grain */
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  pointer-events: none;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Skip link */
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 100;
+  transform: translateY(-250%);
+  background: var(--surface-elevated);
+  color: var(--text-primary);
+  border: 1px solid var(--border-active);
+  border-radius: 6px;
+  padding: 0.6rem 1rem;
+  font-size: 0.875rem;
+  transition: transform 0.2s ease;
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
+}
+
+/* ------------------------------------------------------------------ */
+/*  Marquee                                                            */
+/* ------------------------------------------------------------------ */
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 56s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/*  Status dot                                                         */
+/* ------------------------------------------------------------------ */
+
+.status-dot {
+  position: relative;
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background: var(--energy-primary);
+  box-shadow: 0 0 8px rgba(0, 223, 223, 0.7);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .status-dot::after {
+    content: "";
+    position: absolute;
+    inset: -3px;
+    border-radius: inherit;
+    border: 1px solid rgba(0, 223, 223, 0.5);
+    animation: status-ping 2.6s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+
+  @keyframes status-ping {
+    0% {
+      transform: scale(0.55);
+      opacity: 1;
+    }
+    70%,
+    100% {
+      transform: scale(1.9);
+      opacity: 0;
+    }
+  }
+}
